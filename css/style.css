@@ -1,3 +1,8 @@
+:root{
+    margin: 0;
+    padding: 0;
+}
+
 
 #keg, svg {
     max-width: 40vw;
@@ -8,4 +13,22 @@
 
 .bartenderSvg{
     width: 10vw;
+}
+
+#blackboard{
+    position: absolute;
+    top: 5vh;
+    right: 2vw;
+    width: 30vw;
+}
+
+#woodenBar{
+    position: absolute;
+    top: 50vh;
+    width: 70vw;
+    left: 15vw;
+}
+
+#bartendersContainer{
+    display: inline-block;
 }

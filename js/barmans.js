@@ -5,7 +5,13 @@ let bartendersLength = datas.bartenders.length;
 
 
 function start(){
+    
+    let bartendersContainer = document.createElement('div');
+
+
     for(let i= 0; i<bartendersLength; i++){
+        let bartendersContainer = document.createElement('div');
+
 
         let newSvg = document.createElement('img');
         let newName = document.createElement('p');
@@ -30,11 +36,12 @@ function start(){
 
         newStatusDetail.innerHTML = datas.bartenders[i].statusDetail;
 
-
-        document.body.appendChild(newSvg);
-        document.body.appendChild(newName);
-        document.body.appendChild(newStatus);
-        document.body.appendChild(newStatusDetail);
+        document.body.appendChild(bartendersContainer);
+        bartendersContainer.appendChild(newSvg);
+        bartendersContainer.appendChild(newName);
+        bartendersContainer.appendChild(newStatus);
+        bartendersContainer.appendChild(newStatusDetail);
+       
         
 
     }
