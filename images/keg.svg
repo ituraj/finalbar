@@ -1,0 +1,9 @@
+<svg id="keg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 118.33 311.87">
+<title>keg</title><rect id="top" x="40.17" y="137.55" width="38" height="16.67" style="fill:#f4f7dc"/>
+<path id="long-tap" d="M309.49,559.33H278.4c.39-5.89.62-12.18.6-18.83,0-6-.24-11.77-.6-17.17h31.09c-.39,5.72-.62,11.83-.61,18.29C308.88,547.87,309.11,553.78,309.49,559.33Z" transform="translate(-236.67 -262.45)" style="fill:#f4f7dc"/>
+<circle id="circle" cx="59.17" cy="206.71" r="59.17" style="fill:#3d4b50"/>
+<circle id="brand" cx="59.17" cy="206.71" r="53.18" style="fill:#dbf8e1"/>
+<rect id="short" x="54.5" y="121.55" width="9.33" height="16" style="fill:#93a4ae"/>
+<path id="handle" d="M272.47,265.27,286.15,392l18.57-.29,10.7-128.66a154.65,154.65,0,0,0-42.95,2.22Z" transform="translate(-236.67 -262.45)" style="fill:#232b2e"/>
+<path id="tap" d="M316.28,574.32H271.61a50.81,50.81,0,0,1,1.51-13.2c.2-.77.41-1.52.63-2.24a110.11,110.11,0,0,1,39.87.12c.31.72.61,1.46.88,2.25A34.2,34.2,0,0,1,316.28,574.32Z" transform="translate(-236.67 -262.45)" style="fill:#3d4b50"/>
+</svg>
