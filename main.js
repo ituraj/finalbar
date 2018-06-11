@@ -30,14 +30,16 @@ for(let i= 0; i<beersLength; i++){
             document.getElementById("bOverallImpression").innerHTML = "<b>Overall impression: </b>" + data.beertypes[i].description.overallImpression;
             document.getElementById("bPopularity").innerHTML = "<b>Popularity: </b>" + data.beertypes[i].popularity;
             document.getElementById("bPouringSpeed").innerHTML = "<b>Pouring Speed: </b>" + data.beertypes[i].pouringSpeed;
+            loadSvg(data.beertypes[i].label.toString().replace("png", "svg"));
+            
         }
     )
 
 }
 
 // Load SVG
-async function loadSvg() {
-    let svgData = await fetch ("images/keg.svg");
+async function loadSvg(id) {
+    let svgData = await fetch ("images/"+id);
     let mySvg = await svgData.text();
     document.querySelector("#graphic").innerHTML = mySvg;
 
