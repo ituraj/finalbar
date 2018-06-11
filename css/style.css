@@ -30,7 +30,6 @@
 }
 
 #bartendersContainer{
-    display: inline;
     float: left;
     padding: 3vw;
     text-align: center;
@@ -38,9 +37,17 @@
 }
 
 #bartendersWrapper{
-    display: inline-block;
-    float: left;
     position: absolute;
-    top: 27vh;
+    top: 20vh;
     left: 15vw;
 }
+
+.diamond{
+    width: 1vw;
+   
+    display: block;
+    margin-left: auto;
+    margin-right: auto ;
+    margin-bottom: 3vh;
+}
+

@@ -17,7 +17,7 @@ function start(){
     for(let i= 0; i<bartendersLength; i++){
         let bartendersContainer = document.createElement('div');
 
-
+        let newDiamond = document.createElement('img');
         let newSvg = document.createElement('img');
         let newName = document.createElement('p');
 
@@ -31,19 +31,22 @@ function start(){
         newName.id = 'bartenderName'+i;
         newStatusDetail.id = 'statusDetail'+i;
         bartendersContainer.id = 'bartendersContainer';
+        newDiamond.id = 'diamond' + i;
+
 
 
         newSvg.className = 'bartenderSvg';
         newStatus.className = 'status';
         newStatusDetail.className = 'statusDetail';
         newName.className = 'bartenderName';
+        newDiamond.className = 'diamond';
 
         newSvg.setAttribute("src", "images/" + datas.bartenders[i].name + ".svg");
-        console.log(datas.bartenders[i].name);
-
+        newDiamond.setAttribute("src", "images/diamond.svg");
         newStatusDetail.innerHTML = datas.bartenders[i].statusDetail;
 
         bartendersWrapper.appendChild(bartendersContainer);
+        bartendersContainer.appendChild(newDiamond);
         bartendersContainer.appendChild(newSvg);
         bartendersContainer.appendChild(newName);
         bartendersContainer.appendChild(newStatus);
@@ -61,8 +64,12 @@ function updateBartenders(){
 
          datas = FooBar.getData();
          let data = JSON.parse(datas);
+         let currentStatus;
 
     for(let i= 0; i<bartendersLength; i++){
+
+        currentStatus = data.bartenders[i].status;
+
     
         document.getElementById("status"+i).innerHTML = data.bartenders[i].status;
         document.getElementById("bartenderName"+ i).innerHTML = data.bartenders[i].name;
@@ -74,6 +81,10 @@ function updateBartenders(){
 
 
 }
+
+// function setDiamondColor(diamond, color){
+//     diamond.
+// }
 
 
 
