@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", loadSvg);
+
 let data = JSON.parse(FooBar.getData());
 let beersLength = data.beertypes.length;
 
@@ -19,7 +21,7 @@ for(let i= 0; i<beersLength; i++){
     $(newButton).on('click',  
         function(){
             document.getElementById("bName").innerHTML = "<b>Name: </b>" + data.beertypes[i].name;
-            document.getElementById("bAlc").innerHTML = "<b>Alcohol: </b>" + data.beertypes[i].alc;
+            document.getElementById("bAlc").innerHTML = "<b>Alcohol: </b>" + data.beertypes[i].alc + "%";
             document.getElementById("bCategory").innerHTML = "<b>Category: </b>" + data.beertypes[i].category;
             document.getElementById("bAppearance").innerHTML = "<b>Appearance: </b>" + data.beertypes[i].description.appearance;
             document.getElementById("bAroma").innerHTML = "<b>Aroma: </b>" + data.beertypes[i].description.aroma;
@@ -31,5 +33,19 @@ for(let i= 0; i<beersLength; i++){
         }
     )
 
+}
+
+// Load SVG
+async function loadSvg() {
+    let svgData = await fetch ("images/keg.svg");
+    let mySvg = await svgData.text();
+    document.querySelector("#graphic").innerHTML = mySvg;
+
+
+
+document.querySelector("#handle").addEventListener("click", function() {
+let handle = document.querySelector("#handle");
+handle.style.fill = "grey";
+});
 }
 
