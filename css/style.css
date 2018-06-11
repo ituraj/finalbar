@@ -30,5 +30,17 @@
 }
 
 #bartendersContainer{
+    display: inline;
+    float: left;
+    padding: 3vw;
+    text-align: center;
+    color: white;
+}
+
+#bartendersWrapper{
     display: inline-block;
+    float: left;
+    position: absolute;
+    top: 27vh;
+    left: 15vw;
 }
