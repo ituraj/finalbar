@@ -7,7 +7,7 @@ let bartendersLength = datas.bartenders.length;
 function start(){
     for(let i= 0; i<bartendersLength; i++){
 
-        let newSvg = document.createElement('svg');
+        let newSvg = document.createElement('img');
         let newName = document.createElement('p');
 
          let newStatus = document.createElement('p');
@@ -25,7 +25,8 @@ function start(){
         newStatusDetail.className = 'statusDetail';
         newName.className = 'bartenderName';
 
-        newSvg.setAttribute("src", datas.bartenders[i].name + ".svg");
+        newSvg.setAttribute("src", "images/" + datas.bartenders[i].name + ".svg");
+        console.log(datas.bartenders[i].name);
 
         newStatusDetail.innerHTML = datas.bartenders[i].statusDetail;
 
