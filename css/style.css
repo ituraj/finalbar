@@ -163,7 +163,7 @@ main {
     position: relative;
     z-index: 20;
     margin-right: 1vw;
-    padding-bottom: 2vh;
+    padding-bottom: 0.5vh;
 }
 
 #topBeersTitle{

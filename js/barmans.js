@@ -222,16 +222,16 @@ function checkPopularity(){
 window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateData();
     updateBartenders();
-    checkPopularity();
     }, 1000);
 
-
-
-
-
-    window.setInterval(function(){  ////INTERVAL THAT UPDATES EVERY 20 SECS
+    window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 4 SECS
+        
+        checkPopularity();
         updateTopBeers();
-        }, 2000);
+        }, 4000);
+
+
+
 
 
    document.addEventListener("DOMContentLoaded", start());
