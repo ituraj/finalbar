@@ -149,10 +149,31 @@ function updateBartenders(){
         document.getElementById("bartenderName"+ i).innerHTML = data.bartenders[i].name;
         document.getElementById("statusDetail"+ i).innerHTML = data.bartenders[i].statusDetail;
 
-    
+        diamondColour(i);
+    }
+
+
+}
+
+
+function diamondColour(i){
+
+    let data = updateData();
+
+
+    if (data.bartenders[i].status=="WORKING") {
+        
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "red")
+
+    } else if (data.bartenders[i].statusDetail=="READY") {
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "green")
+    } else {
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "aqua")
+
     }
 
 }
+
 
 
 function updateTopBeers(){
@@ -183,6 +204,7 @@ async function loadSvg(i) {
 }
 
 
+<<<<<<< HEAD
 function checkPopularity(){
     let data = updateData();
 
@@ -194,6 +216,8 @@ function checkPopularity(){
 }
 
 
+=======
+>>>>>>> 90143b4a628a2cecb6a0a7674c8fbbaab08575fd
  
 
 
