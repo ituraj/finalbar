@@ -6,6 +6,8 @@ let datas= JSON.parse(FooBar.getData());
 let bartendersLength = datas.bartenders.length;
 let beersLength = datas.beertypes.length;
 let beerNames = [];
+let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
+
 
 
 
@@ -18,6 +20,18 @@ function shuffle(a) {  //// downloaded function that shuffles arrays
 }
 
 
+function countPopularity(arr1, arr2){
+    for(let i=0; i<arr1.length; i ++){
+        for(let j=0; j<arr1.length; j ++){
+            if(arr1[i]==arr2[j]){
+                beerPopularityArr[j]++;
+            }
+        }
+    }
+
+}
+
+
 function start(){
 
     let bartendersWrapper = document.createElement('div');
@@ -27,17 +41,23 @@ function start(){
 
 
 
-    for(let i= 0; i<beersLength; i++){ //
+    for(let i= 0; i<beersLength; i++){ //populating blackboard with most popular beers
             let newTopBeer = document.createElement('p');
             newTopBeer.id = 'topBeer'+i;
             newTopBeer.className = 'topBeer'
-            newTopBeer.innerHTML = i + '. <span id = "topBeerSpan'+i+'"></span>'  ;
-            blackboardDiv.appendChild(newTopBeer);
+            newTopBeer.innerHTML = i+1 + '. <span id = "topBeerSpan'+i+'"></span>'  ;
 
+            if(i<5){
+            row1.appendChild(newTopBeer);
+            }
+            else{
+            row2.appendChild(newTopBeer);
+            }
             beerNames.push(datas.beertypes[i].name);
 
     }
   
+
 
 
     
@@ -184,13 +204,26 @@ async function loadSvg(i) {
 }
 
 
+function checkPopularity(){
+    let data = updateData();
+
+    for(let i= 0; i<bartendersLength; i++){
+       
+    countPopularity(data.serving[i].order, beerNames);
+    }
+
+}
+
+
  
 
 
 
 window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 3 SECS
     updateData();
+    console.log(updateData())
     updateBartenders();
+    checkPopularity();
     }, 3000);
 
 
