@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-@import url('https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light|Permanent+Marker');
 
 /* Table of contents: 
 
@@ -15,11 +14,6 @@
 /* ----- General ----- */
 
 body, main, nav, header {
-=======
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
-
-:root{
->>>>>>> 9333a49239ec7ac87352ee4b3a5978863284ec67
     margin: 0;
     padding: 0;
 }
