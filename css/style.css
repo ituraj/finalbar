@@ -103,9 +103,23 @@ main {
 
 #woodenBar{
     position: absolute;
+<<<<<<< HEAD
     top: 50vh;
     width: 70vw;
     left: 20vw;
+=======
+    top: 41vh;
+    width: 60vw;
+    left: 20vw;
+}
+
+#lights{
+    position: absolute;
+    top: -5vh;
+    width: 50vw;
+    left: 23vw;
+    z-index: -2;
+>>>>>>> b38f29944ffc84076fab0861b72009c6ea7adf5a
 }
 
 #bartendersContainer{
@@ -118,7 +132,11 @@ main {
 #bartendersWrapper{
     position: absolute;
     top: 20vh;
+<<<<<<< HEAD
     left: 20vw;
+=======
+    left: 25vw;
+>>>>>>> b38f29944ffc84076fab0861b72009c6ea7adf5a
 }
 
 .diamonds{
@@ -161,4 +179,8 @@ main {
 #topBeersTitle{
     padding-left: 2vw;
     padding-bottom: 0;
+<<<<<<< HEAD
+=======
+    font-size: 1em;
+>>>>>>> b38f29944ffc84076fab0861b72009c6ea7adf5a
 }
