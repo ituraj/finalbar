@@ -1,3 +1,6 @@
+"use strict";
+
+
 let datas= JSON.parse(FooBar.getData());
 
 let bartendersLength = datas.bartenders.length;
@@ -20,6 +23,7 @@ function start(){
     let bartendersWrapper = document.createElement('div');
     bartendersWrapper.id = 'bartendersWrapper';
     document.body.appendChild(bartendersWrapper);
+    
 
 
 
@@ -77,24 +81,9 @@ function start(){
         bartendersContainer.appendChild(newStatus);
         bartendersContainer.appendChild(newStatusDetail);
 
-        
-        async function loadSvg(i) {
+      
 
-            let newDiv = document.createElement('div');
-            
-            // Load SVG
-        
-            let svgData = await fetch("images/diamond.svg");
-            let mySvg = await svgData.text();
-            console.log(i);
-            
-            
-            newDiv.id = 'diamond'+i;
-            newDiv.innerHTML = mySvg;
-
-            document.getElementById("diamonds").appendChild(newDiv);
-
-        }
+        updateTopBeers();
        
         
 
@@ -105,6 +94,25 @@ function updateData(){
     return JSON.parse(FooBar.getData());
 }
 
+
+  
+async function loadSvg(i) {
+
+    let newDiv = document.createElement('div');
+    
+    // Load SVG
+
+    let svgData = await fetch("images/diamond.svg");
+    let mySvg = await svgData.text();
+    console.log(i);
+    
+    
+    newDiv.id = 'diamond'+i;
+    newDiv.innerHTML = mySvg;
+
+    document.getElementById("diamonds").appendChild(newDiv);
+
+}
 
 function updateBartenders(){
 
@@ -160,13 +168,18 @@ async function loadSvg(i) {
 
 
 
-window.setInterval(function(){
+window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 3 SECS
     updateData();
     updateBartenders();
-    updateTopBeers();
-    
- 
-    
-   }, 3000);
+    }, 3000);
 
-   start();
+
+
+
+
+    window.setInterval(function(){  ////INTERVAL THAT UPDATES EVERY 20 SECS
+        updateTopBeers();
+        }, 20000);
+
+
+   document.addEventListener("DOMContentLoaded", start());
