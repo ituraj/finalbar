@@ -11,20 +11,24 @@ let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueO
 
 
 
-function shuffle(a) {  //// downloaded function that shuffles arrays
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
+function compareSecondColumn(a, b) {  ////STACK OVERFLOW FUNCTION FOR SORTING 2-DIMENSIONAL ARRAYS
+    if (a[1] === b[1]) {
+        return 0;
     }
-    return a;
+    else {
+        return (a[1] > b[1]) ? -1 : 1;
+    }
 }
 
 
-function countPopularity(arr1, arr2){
+
+function countPopularity(arr1, arr2){  ////creates array in which beernumber from beerlist is assigned to amount of ordered beers
+
     for(let i=0; i<arr1.length; i ++){
-        for(let j=0; j<arr1.length; j ++){
+        for(let j=0; j<arr2.length; j ++){
             if(arr1[i]==arr2[j]){
                 beerPopularityArr[j]++;
+                
             }
         }
     }
@@ -115,25 +119,6 @@ function updateData(){
 }
 
 
-  
-async function loadSvg(i) {
-
-    let newDiv = document.createElement('div');
-    
-    // Load SVG
-
-    let svgData = await fetch("images/diamond.svg");
-    let mySvg = await svgData.text();
-    console.log(i);
-    
-    
-    newDiv.id = 'diamond'+i;
-    newDiv.innerHTML = mySvg;
-
-    document.getElementById("diamonds").appendChild(newDiv);
-
-}
-
 function updateBartenders(){
 
         
@@ -178,12 +163,23 @@ function diamondColour(i){
 
 function updateTopBeers(){
     let data = updateData();
-    let tempBeerArr= shuffle(beerNames);
 
-    for(let i = 0; i< beerNames.length; i++){
-    document.getElementById("topBeerSpan"+i).innerHTML = tempBeerArr[i];
+  /////////DOWNLOADED FUNCTION FOR ARRAY MERGE I DONT UNDERSTAND THE WAY ITS DECLARED
+        Array.prototype.zip = function (arr) {
+            return this.map(function (e, i) {
+                return [e, arr[i]];
+            })
+        };
+   
+    //let tempBeerPopArr = beerPopularityArr.sort(function(a, b){return a - b});
+    let tempArray = beerNames.zip(beerPopularityArr);
+    let tempArraySorted = tempArray.sort(compareSecondColumn);
+    console.log(tempArraySorted);
+
+     for(let i = 0; i< beerNames.length; i++){
+     document.getElementById("topBeerSpan"+i).innerHTML = tempArraySorted[i];}
 }
-}
+
 
 async function loadSvg(i) {
 
@@ -197,6 +193,7 @@ async function loadSvg(i) {
    
    
     newDiv.id = 'diamond'+i;
+    newDiv.className = 'diamondClass';
     newDiv.innerHTML = mySvg;
 
     document.getElementById("diamonds").appendChild(newDiv);
@@ -208,8 +205,11 @@ function checkPopularity(){
     let data = updateData();
 
     for(let i= 0; i<bartendersLength; i++){
-       
+       if(data.bartenders[i].statusDetail == "receivePayment"){
     countPopularity(data.serving[i].order, beerNames);
+    console.log(beerPopularityArr);
+}
+
     }
 
 }
@@ -219,20 +219,19 @@ function checkPopularity(){
 
 
 
-window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 3 SECS
+window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateData();
-    console.log(updateData())
     updateBartenders();
-    checkPopularity();
-    }, 3000);
+    }, 1000);
 
-
-
-
-
-    window.setInterval(function(){  ////INTERVAL THAT UPDATES EVERY 20 SECS
+    window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 4 SECS
+        
+        checkPopularity();
         updateTopBeers();
-        }, 20000);
+        }, 4000);
+
+
+
 
 
    document.addEventListener("DOMContentLoaded", start());
