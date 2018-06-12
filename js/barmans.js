@@ -145,10 +145,10 @@ function diamondColour(i){
         
         $("#diamond"+i+">#diamond>#dcolour").css("fill", "red")
 
-    } else if (data.bartenders[i].statusDetail=="READY") {
+    } else if (data.bartenders[i].status=="READY") {
         $("#diamond"+i+">#diamond>#dcolour").css("fill", "green")
     } else {
-        $("#diamond"+i+">#diamond>#dcolour").css("fill", "aqua")
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "grey")
 
     }
 
