@@ -46,12 +46,13 @@ function start(){
     for(let i= 0; i<bartendersLength; i++){    //loop that populates bartenders with their details
         let bartendersContainer = document.createElement('div');
 
-        let newDiamond = document.createElement('object');
         let newSvg = document.createElement('img');
         let newName = document.createElement('p');
 
          let newStatus = document.createElement('p');
          let newStatusDetail = document.createElement('p');
+
+         loadSvg(i);
          
 
 
@@ -60,7 +61,6 @@ function start(){
         newName.id = 'bartenderName'+i;
         newStatusDetail.id = 'statusDetail'+i;
         bartendersContainer.id = 'bartendersContainer';
-        newDiamond.id = 'diamond' + i;
 
 
 
@@ -68,7 +68,6 @@ function start(){
         newStatus.className = 'status';
         newStatusDetail.className = 'statusDetail';
         newName.className = 'bartenderName';
-        newDiamond.className = 'diamond';
 
         newSvg.setAttribute("src", "images/" + datas.bartenders[i].name + ".svg");
         newDiamond.setAttribute("data", "images/diamond.svg");
@@ -77,7 +76,6 @@ function start(){
         newStatusDetail.innerHTML = datas.bartenders[i].statusDetail;
 
         bartendersWrapper.appendChild(bartendersContainer);
-        bartendersContainer.appendChild(newDiamond);
         bartendersContainer.appendChild(newSvg);
         bartendersContainer.appendChild(newName);
         bartendersContainer.appendChild(newStatus);
@@ -124,6 +122,25 @@ function updateTopBeers(){
     document.getElementById("topBeerSpan"+i).innerHTML = tempBeerArr[i];
 }
 }
+
+async function loadSvg(i) {
+
+    let newDiv = document.createElement('div');
+   
+    // Load SVG
+
+    let svgData = await fetch("images/diamond.svg");
+    let mySvg = await svgData.text();
+    
+   
+   
+    newDiv.id = 'diamond'+i;
+    newDiv.innerHTML = mySvg;
+
+    document.getElementById("diamonds").appendChild(newDiv);
+
+}
+
 
 
  
