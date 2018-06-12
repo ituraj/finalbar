@@ -129,10 +129,26 @@ function updateBartenders(){
         document.getElementById("bartenderName"+ i).innerHTML = data.bartenders[i].name;
         document.getElementById("statusDetail"+ i).innerHTML = data.bartenders[i].statusDetail;
 
-    
+        diamondColour();
     }
 
+        function diamondColour(){
+            for(let i= 0; i<bartendersLength; i++){
+
+            if (data.bartenders[i].status=="WORKING") {
+                
+                document.querySelector("#dcolour").style.fill="red";
+                        
+            } else if (data.bartenders[i].statusDetail=="READY") {
+                document.querySelector("#dcolour").style.fill="green";
+            } else {
+                document.querySelector("#dcolour").style.fill="grey";
+        
+            }
+        }
+    }
 }
+
 
 
 function updateTopBeers(){
@@ -161,7 +177,6 @@ async function loadSvg(i) {
     document.getElementById("diamonds").appendChild(newDiv);
 
 }
-
 
 
  
