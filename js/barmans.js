@@ -163,7 +163,7 @@ function diamondColour(i){
 
     if (data.bartenders[i].status=="WORKING") {
         
-        $("#diamond"+i+">#diamond>#dcolour").css("fill", "red")
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "#d85459")
 
     } else if (data.bartenders[i].status=="READY") {
         $("#diamond"+i+">#diamond>#dcolour").css("fill", "green")

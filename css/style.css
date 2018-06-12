@@ -17,6 +17,10 @@ body, main, nav, header {
     margin: 0;
     padding: 0;
 }
+body{
+    background: linear-gradient(#e66465, #9198e5);
+
+}
 
 /* ----- Typography ----- */
 
@@ -49,7 +53,7 @@ a {
 
 nav {
     grid-area: nav;
-    background-color: #111;
+    background-color: #333333;
 }
 
 nav ul {
@@ -91,20 +95,20 @@ main {
 /* ----- Bartenders Section ----- */
 
 .bartenderSvg{
-    width: 10vw;
+    width: 8vw;
 }
 
 #blackboard{
     position: absolute;
-    top: 5vh;
-    left: 68vw;
-    width: 30vw;
+    top: 3vh;
+    right: 2vw;
+    width: 28vw;
 }
 
 #woodenBar{
     position: absolute;
     top: 41vh;
-    width: 60vw;
+    width: 55vw;
     left: 20vw;
 }
 
@@ -112,7 +116,7 @@ main {
     position: absolute;
     top: -5vh;
     width: 50vw;
-    left: 23vw;
+    left: 20vw;
     z-index: -2;
 }
 
@@ -125,17 +129,22 @@ main {
 
 #bartendersWrapper{
     position: absolute;
-    top: 20vh;
+    top: 23vh;
     left: 25vw;
 }
 
-.diamonds{
+#diamonds{
     width: 2vw;
-    display: block;
+    /* display: inline-block; */
     margin-left: auto;
     margin-right: auto ;
     margin-bottom: 3vh;
     z-index: 10;
+    position:absolute;
+}
+#diamonds div{
+/* float: left; */
+z-index: 1000;
 }
 
 #dcolour{
@@ -144,12 +153,14 @@ main {
 
 #blackboardDiv{
     font-family: 'Shadows Into Light', cursive;
-    font-size: 1.2em;
+    font-size: 1.1em;
+    line-height: 0.8em;
     color: #fff;
     position: absolute;
-    left: 68vw;
-    top: 3vh;
+    right: 2vw;
+    top: 2vh;
     text-align: justify;
+    padding: 0;
 }
 
 #row1, #row2{
