@@ -129,24 +129,29 @@ function updateBartenders(){
         document.getElementById("bartenderName"+ i).innerHTML = data.bartenders[i].name;
         document.getElementById("statusDetail"+ i).innerHTML = data.bartenders[i].statusDetail;
 
-        diamondColour();
+        diamondColour(i);
     }
 
-        function diamondColour(){
-            for(let i= 0; i<bartendersLength; i++){
 
-            if (data.bartenders[i].status=="WORKING") {
-                
-                document.querySelector("#dcolour").style.fill="red";
-                        
-            } else if (data.bartenders[i].statusDetail=="READY") {
-                document.querySelector("#dcolour").style.fill="green";
-            } else {
-                document.querySelector("#dcolour").style.fill="grey";
+}
+
+
+function diamondColour(i){
+
+    let data = updateData();
+
+
+    if (data.bartenders[i].status=="WORKING") {
         
-            }
-        }
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "red")
+
+    } else if (data.bartenders[i].statusDetail=="READY") {
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "green")
+    } else {
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "aqua")
+
     }
+
 }
 
 

@@ -64,3 +64,8 @@
     color: white;
     position: absolute;
 }
+
+
+#diamond0>#diamond>#dcolour{
+    fill: pink;
+}
