@@ -10,10 +10,10 @@ console.log(data.beertypes["0"].alc);
 
 
 
-var toAdd = document.createElement('div');
+let toAdd = document.createElement('div');
 
 for(let i= 0; i<beersLength; i++){
-    var newButton = document.createElement('button');
+    let newButton = document.createElement('button');
     newButton.id = 'buttonBeerId'+i;
     newButton.className = 'buttonBeer';
     newButton.innerHTML = data.beertypes[i].name;
