@@ -18,6 +18,11 @@ body, main, nav, header {
     padding: 0;
 }
 
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
 /* ----- Typography ----- */
 
 h1 {
@@ -74,6 +79,32 @@ header {
 main {
     grid-area: main;
     background-color: #d9d9d9;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    grid-template-areas: 
+                "graph info"
+}
+
+#graphic {
+    grid-area: graph;
+}
+
+#info {
+    grid-area: info;
+}
+
+#graphic, #info {
+    margin: 5%;
+}
+
+#info p {
+    padding: 0.2em;
+}
+
+#general-info {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
 }
 
 /* ----- Beer Section ----- */
