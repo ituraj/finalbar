@@ -42,8 +42,8 @@
     left: 15vw;
 }
 
-.diamond{
-    width: 1vw;
+.diamonds{
+    width: 2vw;
    
     display: block;
     margin-left: auto;
@@ -51,3 +51,6 @@
     margin-bottom: 3vh;
 }
 
+#dcolour{
+    fill:red !important;
+}
