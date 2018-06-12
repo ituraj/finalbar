@@ -1,10 +1,86 @@
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light|Permanent+Marker');
 
-:root{
+/* Table of contents: 
+
+- General
+- Typography
+- Grid
+- Header & Navigation
+- Main
+- Images & Media
+
+*/
+
+/* ----- General ----- */
+
+body, main, nav, header {
     margin: 0;
     padding: 0;
 }
 
+/* ----- Typography ----- */
+
+h1 {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+}
+
+a {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+}
+
+/* -----    Grid    ----- */
+
+.container{
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-rows: .5fr 9.5fr;
+    grid-template-areas: 
+                "nav hd hd"
+                "nav main main";
+    width: 100vw;
+    height: 100vw;
+}
+
+/* ----- Header & Navigation ----- */
+
+nav {
+    grid-area: nav;
+    background-color: #111;
+}
+
+nav ul {
+    list-style: none;
+}
+
+ul li {
+    text-align: center;
+}
+
+li a{
+    color: #fff;
+    text-decoration: none;
+}
+
+header {
+    grid-area: hd;
+}
+
+/* ----- Main ----- */
+
+main {
+    grid-area: main;
+    background-color: #d9d9d9;
+}
+
+/* ----- Beer Section ----- */
+
+.beerButton {
+    margin: 1%;
+}
 
 #keg, svg {
     max-width: 40vw;
@@ -12,6 +88,7 @@
     margin: 1%;
 }
 
+/* ----- Bartenders Section ----- */
 
 .bartenderSvg{
     width: 10vw;
@@ -26,9 +103,17 @@
 
 #woodenBar{
     position: absolute;
-    top: 50vh;
-    width: 70vw;
-    left: 15vw;
+    top: 41vh;
+    width: 60vw;
+    left: 20vw;
+}
+
+#lights{
+    position: absolute;
+    top: -5vh;
+    width: 50vw;
+    left: 23vw;
+    z-index: -2;
 }
 
 #bartendersContainer{
@@ -41,12 +126,11 @@
 #bartendersWrapper{
     position: absolute;
     top: 20vh;
-    left: 15vw;
+    left: 25vw;
 }
 
 .diamonds{
     width: 2vw;
-   
     display: block;
     margin-left: auto;
     margin-right: auto ;
@@ -56,12 +140,12 @@
 
 #dcolour{
     z-index: 10;
-
 }
 
 #blackboardDiv{
-    font-family: 'Permanent Marker', cursive;
-    color: white;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.2em;
+    color: #fff;
     position: absolute;
     left: 68vw;
     top: 3vh;
@@ -85,5 +169,5 @@
 #topBeersTitle{
     padding-left: 2vw;
     padding-bottom: 0;
-    font-size: 20px;
+    font-size: 1em;
 }
