@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", loadKeg, loadSvg);
+document.addEventListener("DOMContentLoaded", loadKeg);
 
 let data = JSON.parse(FooBar.getData());
 let beersLength = data.beertypes.length;
@@ -30,17 +30,16 @@ for(let i= 0; i<beersLength; i++){
             document.getElementById("bOverallImpression").innerHTML = "<b>Overall impression: </b>" + data.beertypes[i].description.overallImpression;
             document.getElementById("bPopularity").innerHTML = "<b>Popularity: </b>" + data.beertypes[i].popularity;
             document.getElementById("bPouringSpeed").innerHTML = "<b>Pouring Speed: </b>" + data.beertypes[i].pouringSpeed;
-            loadSvg(data.beertypes[i].label.toString().replace("png", "svg"));
-            
         }
-    )
+    );
+    $( ".buttons" ).append(newButton);
 
 }
 
 // Load SVGs
 
 async function loadKeg() {
-    let svgKeg = await fetch ("images/keg.svg");
+    let svgKeg = await fetch ("images/goodkeg.svg");
     let myKeg = await svgKeg.text();
     document.querySelector("#graphic").innerHTML = myKeg;
 
@@ -48,11 +47,5 @@ document.querySelector("#handle").addEventListener("click", function() {
 let handle = document.querySelector("#handle");
 handle.style.fill = "grey";
 });
-}
-
-async function loadSvg(id) {
-    let svgData = await fetch ("images/"+id);
-    let mySvg = await svgData.text();
-    document.querySelector("#graphic").innerHTML = mySvg;
 }
 
