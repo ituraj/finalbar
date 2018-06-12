@@ -68,7 +68,6 @@
     text-align: justify;
 }
 
-<<<<<<< HEAD
 #row1, #row2{
     position: relative;
     margin: 0 1vw 0;
@@ -87,9 +86,4 @@
     padding-left: 2vw;
     padding-bottom: 0;
     font-size: 20px;
-=======
-
-#diamond0>#diamond>#dcolour{
-    fill: pink;
->>>>>>> 90143b4a628a2cecb6a0a7674c8fbbaab08575fd
 }

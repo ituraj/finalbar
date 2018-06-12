@@ -204,7 +204,6 @@ async function loadSvg(i) {
 }
 
 
-<<<<<<< HEAD
 function checkPopularity(){
     let data = updateData();
 
@@ -216,8 +215,6 @@ function checkPopularity(){
 }
 
 
-=======
->>>>>>> 90143b4a628a2cecb6a0a7674c8fbbaab08575fd
  
 
 
