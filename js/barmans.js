@@ -1,4 +1,3 @@
-
 let datas= JSON.parse(FooBar.getData());
 
 let bartendersLength = datas.bartenders.length;
@@ -52,9 +51,9 @@ function start(){
          let newStatus = document.createElement('p');
          let newStatusDetail = document.createElement('p');
 
-         loadSvg(i);
-         
 
+
+        loadSvg(i);
 
         newSvg.id = 'bartenderSvg'+i;
         newStatus.id = 'status'+i;
@@ -70,9 +69,6 @@ function start(){
         newName.className = 'bartenderName';
 
         newSvg.setAttribute("src", "images/" + datas.bartenders[i].name + ".svg");
-        newDiamond.setAttribute("data", "images/diamond.svg");
-        newDiamond.setAttribute("type", "image/svg+xml");
-
         newStatusDetail.innerHTML = datas.bartenders[i].statusDetail;
 
         bartendersWrapper.appendChild(bartendersContainer);
@@ -81,7 +77,24 @@ function start(){
         bartendersContainer.appendChild(newStatus);
         bartendersContainer.appendChild(newStatusDetail);
 
+        
+        async function loadSvg(i) {
 
+            let newDiv = document.createElement('div');
+            
+            // Load SVG
+        
+            let svgData = await fetch("images/diamond.svg");
+            let mySvg = await svgData.text();
+            console.log(i);
+            
+            
+            newDiv.id = 'diamond'+i;
+            newDiv.innerHTML = mySvg;
+
+            document.getElementById("diamonds").appendChild(newDiv);
+
+        }
        
         
 
