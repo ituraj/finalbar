@@ -105,7 +105,7 @@ main {
     position: absolute;
     top: 50vh;
     width: 70vw;
-    left: 15vw;
+    left: 20vw;
 }
 
 #bartendersContainer{
@@ -118,12 +118,11 @@ main {
 #bartendersWrapper{
     position: absolute;
     top: 20vh;
-    left: 15vw;
+    left: 20vw;
 }
 
 .diamonds{
     width: 2vw;
-   
     display: block;
     margin-left: auto;
     margin-right: auto ;
@@ -133,12 +132,12 @@ main {
 
 #dcolour{
     z-index: 10;
-
 }
 
 #blackboardDiv{
-    font-family: 'Permanent Marker', cursive;
-    color: white;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.2em;
+    color: #fff;
     position: absolute;
     left: 68vw;
     top: 3vh;
@@ -162,5 +161,4 @@ main {
 #topBeersTitle{
     padding-left: 2vw;
     padding-bottom: 0;
-    font-size: 20px;
 }
