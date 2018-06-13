@@ -43,6 +43,8 @@ function start(){
     let bartendersWrapper = document.createElement('div');
     bartendersWrapper.id = 'bartendersWrapper';
     document.body.appendChild(bartendersWrapper);
+
+    storageState();
     
 
 
@@ -166,12 +168,49 @@ function storageState(){
     let tempKegsArr=data.storage;
     let keg;
     let amount;
+    let kegsDiv = document.getElementById("kegsDiv");
     for(let i=0; i<storageLength; i++){
         keg= tempKegsArr[i].name;
         amount = tempKegsArr[i].amount;
              console.log("there are "+ amount + " kegs of " + keg );
+
+            let newKegContainer = document.createElement('div');
+             let newKeg = document.createElement('p');
+             let newKegAmount = document.createElement('p');
+     
+             newKegContainer.id = 'kegContainerId'+i;
+                newKeg.id = 'kegId'+i;
+             newKegAmount.id = 'kegAmountId'+i;
+             
+             newKegContainer.className = 'kegContainerClass';
+             newKeg.className = 'kegClass';
+             newKegAmount.className = 'kegAmountClass';
+
+            newKeg.innerHTML = keg;
+            newKegAmount.innerHTML = amount;
+
+            newKegContainer.appendChild(newKeg);
+            newKegContainer.appendChild(newKegAmount);
+            kegsDiv.appendChild(newKegContainer);
+
+
     }
 
+
+}
+
+function updateStorage(){
+    let data = updateData();
+    let tempKegsArr=data.storage;
+    let keg;
+    let amount;
+    let kegsDiv = document.getElementById("kegsDiv");
+    for(let i=0; i<storageLength; i++){
+        amount = tempKegsArr[i].amount;
+        keg = document.getElementById('kegAmountId'+ i);
+        keg.innerHTML = amount;
+        
+    }
 }
 
 
@@ -243,7 +282,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
         
         checkPopularity();
         updateTopBeers();
-        storageState();
+        updateStorage();
         }, 4000);
 
 
