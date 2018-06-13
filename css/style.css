@@ -167,15 +167,17 @@ main {
 }
 
 #diamonds{
-    width: 20vw; /*must be wider than one dimond or they wont be in horizontal line*/
+    width: 60vw; /*must be wider than one dimond or they wont be in horizontal line*/
     position: absolute;
-    left: 10vw;
+    left: 31vw;
     overflow: auto;
+    top: 19vh;
 }
 .diamondClass{
-z-index: 1000;
-float:left;
-width: 2vw;
+ /* z-index: 1000; */
+    float:left;
+    width: 2vw;
+    padding-right: 12vw;
 }
 
 #dcolour{
