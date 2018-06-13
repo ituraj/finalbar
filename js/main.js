@@ -45,11 +45,14 @@ async function loadKeg() {
 document.querySelector("#handle").addEventListener("click", function() {
 let handle = document.querySelector("#handle");
 handle.style.fill = "grey";
+handle.style.transform="rotate(90deg)";
+handle.style.transformOrigin="55% 38% 0px";
+
 });
 
 document.querySelector("#change").addEventListener("click", function() {
     let brandClick = document.querySelector("#brand");
-    brandClick..style.fill = "aqua";
+    brandClick.style.fill = "aqua";
     });
 }
 
