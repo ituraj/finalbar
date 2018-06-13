@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Shadows+Into+Light|Permanent+Marker');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
+
 
 /* Table of contents: 
 
@@ -95,6 +97,10 @@ main {
 
 #info {
     grid-area: info;
+    background-color: #e66465;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    padding: 1.3em;
 }
 
 #graphic, #info {
@@ -102,14 +108,14 @@ main {
 }
 
 #info p {
-    padding: 0.2em;
+    padding: 0.3em;
+    font-size: 1rem;
 }
 
 #general-info {
     display: flex;
     flex-direction: row;
     margin: 0;
-    background-color: #9198e5;
 }
 
 /* ----- Beer Section ----- */
@@ -142,7 +148,6 @@ main {
     max-height: 40vh;
     margin: 1%;
 }
-
 
 
 /* ----- Bartenders Section ----- */
