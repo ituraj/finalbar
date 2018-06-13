@@ -5,8 +5,10 @@ let datas= JSON.parse(FooBar.getData());
 
 let bartendersLength = datas.bartenders.length;
 let beersLength = datas.beertypes.length;
+let storageLength = datas.storage.length;
 let beerNames = [];
 let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
+let storageArr = [];
 
 
 
@@ -159,6 +161,19 @@ function diamondColour(i){
 
 }
 
+function storageState(){
+    let data = updateData();
+    let tempKegsArr=data.storage;
+    let keg;
+    let amount;
+    for(let i=0; i<storageLength; i++){
+        keg= tempKegsArr[i].name;
+        amount = tempKegsArr[i].amount;
+             console.log("there are "+ amount + " kegs of " + keg );
+    }
+
+}
+
 
 
 function updateTopBeers(){
@@ -174,7 +189,7 @@ function updateTopBeers(){
     //let tempBeerPopArr = beerPopularityArr.sort(function(a, b){return a - b});
     let tempArray = beerNames.zip(beerPopularityArr);
     let tempArraySorted = tempArray.sort(compareSecondColumn);
-    console.log(tempArraySorted);
+    // console.log(tempArraySorted);
 
      for(let i = 0; i< beerNames.length; i++){
      document.getElementById("topBeerSpan"+i).innerHTML = tempArraySorted[i];}
@@ -207,7 +222,7 @@ function checkPopularity(){
     for(let i= 0; i<bartendersLength; i++){
        if(data.bartenders[i].statusDetail == "receivePayment"){
     countPopularity(data.serving[i].order, beerNames);
-    console.log(beerPopularityArr);
+    // console.log(beerPopularityArr);
 }
 
     }
@@ -228,6 +243,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
         
         checkPopularity();
         updateTopBeers();
+        storageState();
         }, 4000);
 
 
