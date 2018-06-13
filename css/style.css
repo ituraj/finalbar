@@ -169,17 +169,17 @@ g {
 }
 
 #diamonds{
-    width: 2vw;
-    /* display: inline-block; */
-    margin-left: auto;
-    margin-right: auto ;
-    margin-bottom: 3vh;
-    z-index: 10;
-    position:absolute;
+    width: 60vw; /*must be wider than one dimond or they wont be in horizontal line*/
+    position: absolute;
+    left: 31vw;
+    overflow: auto;
+    top: 19vh;
 }
-#diamonds div{
-/* float: left; */
-z-index: 1000;
+.diamondClass{
+ /* z-index: 1000; */
+    float:left;
+    width: 2vw;
+    padding-right: 12vw;
 }
 
 #dcolour{
@@ -216,4 +216,20 @@ z-index: 1000;
     padding-left: 2vw;
     padding-bottom: 0;
     font-size: 1em;
+}
+
+#label10{
+    display: none;
+
+}
+[id^="label"]{
+    visibility: hidden;
+}
+
+#brand{
+    display: none;
+}
+
+#circle{
+    display: none;
 }
