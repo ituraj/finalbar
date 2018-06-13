@@ -47,10 +47,6 @@ let handle = document.querySelector("#handle");
 handle.style.fill = "grey";
 });
 
-document.querySelector("#change").addEventListener("click", function() {
-    let brandClick = document.querySelector("#brand");
-    brandClick..style.fill = "aqua";
-    });
 }
 
 
