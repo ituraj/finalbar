@@ -50,10 +50,17 @@ handle.style.transformOrigin="55% 38% 0px";
 
 });
 
-document.querySelector("#change").addEventListener("click", function() {
-    let brandClick = document.querySelector("#label3");
-    brandClick.style.visibility= "visible";
-    });
 }
 
+function tapButton(){
+   
+    for (let i = 0; i < 10; i++) {
+        document.querySelector("#buttonBeerId" + i).addEventListener("click", function() {
+            let brandClick = document.querySelector("#labelBeer" + i);
+            brandClick.style.visibility= "visible";
+            });
+     }
+ }
+
+tapButton();
 
