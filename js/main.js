@@ -33,13 +33,12 @@ for(let i= 0; i<beersLength; i++){
         }
     );
     $( ".buttons" ).append(newButton);
-
 }
 
 // Load SVGs
 
 async function loadKeg() {
-    let svgKeg = await fetch ("images/goodkeg.svg");
+    let svgKeg = await fetch ("images/parentkeg.svg");
     let myKeg = await svgKeg.text();
     document.querySelector("#graphic").innerHTML = myKeg;
 
@@ -47,5 +46,11 @@ document.querySelector("#handle").addEventListener("click", function() {
 let handle = document.querySelector("#handle");
 handle.style.fill = "grey";
 });
+
+document.querySelector("#change").addEventListener("click", function() {
+    let brandClick = document.querySelector("#brand");
+    brandClick..style.fill = "aqua";
+    });
 }
+
 
