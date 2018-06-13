@@ -109,13 +109,33 @@ main {
     display: flex;
     flex-direction: row;
     margin: 0;
+    background-color: #9198e5;
 }
 
 /* ----- Beer Section ----- */
 
-.beerButton {
-    margin: 1%;
-}
+.buttonBeer {
+        background-color:#3d4b50;
+        border: none;
+        color: white;
+        padding: 12px 40px;
+        text-align: center;
+        font-size: 16px;
+        margin: 4px 2px;
+        opacity: 1;
+        display: inline-block;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      
+      .buttonBeer:hover {
+          opacity: 1;
+          background-color:green;
+    }
+
+    .buttonBeer:active {
+        text-decoration: none;
+  }
 
 #keg, svg {
     max-width: 40vw;
@@ -123,9 +143,7 @@ main {
     margin: 1%;
 }
 
-g {
-    display: none;
-}
+
 
 /* ----- Bartenders Section ----- */
 

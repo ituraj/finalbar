@@ -50,13 +50,10 @@ handle.style.transformOrigin="55% 38% 0px";
 
 });
 
-<<<<<<< HEAD
-=======
 document.querySelector("#change").addEventListener("click", function() {
     let brandClick = document.querySelector("#label3");
     brandClick.style.visibility= "visible";
     });
->>>>>>> 844a2444e9a499a6a2c8d5a411e4fda6ced9819d
 }
 
 
