@@ -172,7 +172,6 @@ function storageState(){
     for(let i=0; i<storageLength; i++){
         keg= tempKegsArr[i].name;
         amount = tempKegsArr[i].amount;
-             console.log("there are "+ amount + " kegs of " + keg );
 
             let newKegContainer = document.createElement('div');
              let newKeg = document.createElement('p');
