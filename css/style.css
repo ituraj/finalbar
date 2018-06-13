@@ -213,3 +213,19 @@ width: 2vw;
     padding-bottom: 0;
     font-size: 1em;
 }
+
+#label10{
+    display: none;
+
+}
+[id^="label"]{
+    visibility: hidden;
+}
+
+#brand{
+    display: none;
+}
+
+#circle{
+    display: none;
+}

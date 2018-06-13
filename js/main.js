@@ -51,8 +51,8 @@ handle.style.transformOrigin="55% 38% 0px";
 });
 
 document.querySelector("#change").addEventListener("click", function() {
-    let brandClick = document.querySelector("#brand");
-    brandClick.style.fill = "aqua";
+    let brandClick = document.querySelector("#label3");
+    brandClick.style.visibility= "visible";
     });
 }
 
