@@ -308,7 +308,7 @@ function updateStorage(){
         keg.innerHTML = amount;
         for(let j = 0; j<amount; j++){
             let tempSvg = document.createElement('img');
-            newSvg.id = 'barrelSvg'+j;ś
+            newSvg.id = 'barrelSvg'+j;
             newSvg.className = 'barrelSvg';
             newSvg.setAttribute("src", "images/barrel"+ i+".svg");
             newKegContainer.appendChild(newSvg);
