@@ -365,18 +365,3 @@ main {
     padding-left: 1vw;
     text-align: center;
 }
-/* MONITOR  - QUEUE - TAPS*/
-#monitor{
-    position: absolute;
-    top: 103vh;
-    right: 2vw;
-    width: 22vw;
-}
-
-#barZoom{
-    position: absolute;
-    top: 160vh;
-    height: 20vw;
-    /* width: 55vw; */
-    left: 20vw;
-}
