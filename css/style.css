@@ -246,9 +246,9 @@ main {
 
 #blackboard{
     position: absolute;
-    top: 3vh;
-    right: 2vw;
-    width: 28vw;
+    /* top: 1vh; */
+    right: 0.5vw;
+    width: 32vw;
 }
 
 #woodenBar{
@@ -371,7 +371,7 @@ main {
 
 #tapsDiv{
     position: absolute;
-    top: 127vh;
+    top: 140vh;
     left: 20vw;
     font-size: 10px;
 }
@@ -390,9 +390,21 @@ main {
     width: 22vw;
 }
 
+#queueDiv{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2em;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 103vh;
+    right: 2vw;
+    width: 22vw;
+    z-index: 10; 
+}
+
 #barZoom{
     position: absolute;
-    top: 160vh;
+    top: 170vh;
     height: 20vw;
     /* width: 55vw; */
     left: 20vw;
