@@ -333,7 +333,12 @@ main {
     display: none;
 
 }
-[id^="label"]{
+[id^="labelBeer"]{
+    visibility: hidden;
+
+}
+
+[id^="lbl"]{
     visibility: hidden;
 
 }
@@ -343,10 +348,6 @@ main {
 }
 
 #brand{
-    display: none;
-}
-
-#circle{
     display: none;
 }
 
@@ -477,6 +478,7 @@ main {
     animation: move 4s infinite ease-out;
     animation-name: c7c8;
     animation-delay: 3s;
+<<<<<<< HEAD
     opacity: 0;
 }
 
@@ -492,3 +494,6 @@ main {
     top: 20vh;
     position: relative;
   }
+=======
+}
+>>>>>>> 9f016c45e0e9f21baba650c252d2a3418da9b0a2

@@ -48,7 +48,9 @@ function start(){
     storageState();
     tapsState();
     queueState();
-    loadKeg()
+    loadKeg();
+    setTimeout(function(){loadTapLabels();}, 1500);
+
     
 
 
@@ -312,16 +314,18 @@ function updateStorage(){
     let keg;
     let amount;
     let kegsDiv = document.getElementById("kegsDiv");
+    $('#kegsDiv div').find('img').remove()
     for(let i=0; i<storageLength; i++){
         amount = tempKegsArr[i].amount;
         keg = document.getElementById('kegAmountId'+ i);
         keg.innerHTML = amount;
         for(let j = 0; j<amount; j++){
-            let tempSvg = document.createElement('img');
+            let newKegContainer = document.getElementById('kegContainerId'+ i);
+            let newSvg = document.createElement('img');
             newSvg.id = 'barrelSvg'+j;
-            newSvg.className = 'barrelSvg';
-            newSvg.setAttribute("src", "images/barrel"+ i+".svg");
-            newKegContainer.appendChild(newSvg);
+                newSvg.className = 'barrelSvg';
+                newSvg.setAttribute("src", "images/barrel"+ i+".svg");
+                newKegContainer.appendChild(newSvg);
         }
         
     }
@@ -338,7 +342,7 @@ function updateTaps(){
         tap = document.getElementById('tapInUseId'+ i);
         tap.innerHTML = isInUse;
         let handle = $("#svgContainerId"+i+">#Layer_1>#hand>#handle")
-        
+
         if(isInUse==true){
         handle.css("fill", "grey");
         handle.css("transform", "rotate(90deg)");
@@ -363,13 +367,32 @@ async function loadKeg() {
 
     for(let i=0; i<tempTapsArr.length; i++){
 
-    let svgKeg = await fetch ("images/parentkeg.svg");
+    let svgKeg = await fetch ("images/parentkeg2.svg");
     let myKeg = await svgKeg.text();
     let svgConDiv = document.getElementById("svgContainerId"+i);
 
+    // //let labelz = $('[id^="lbl"]');
+    // //labelz.css("visibility", "hidden");
+    // console.log(i);
+    // let x = $("#tapConainerI#svgContainerId"+i);
+    // //x.css("zIndex", "100");
+    // console.log(x.find("svg"));
+    // //console.log(x);
     svgConDiv.innerHTML = myKeg;
     }
 
+}
+
+function loadTapLabels(){
+
+    let tempTapsArr=data.taps;
+
+
+    for(let i=0; i<tempTapsArr.length; i++){
+    let x = $("#svgContainerId"+i+">#Layer_1>#keg>#lbl"+ i);
+    x.css("visibility", "visible");
+}
+    
 }
 
 
@@ -460,6 +483,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
         updateTopBeers();
         updateStorage();
         updateTaps();
+        
        
         }, 4000);
 
