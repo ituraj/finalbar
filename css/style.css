@@ -38,6 +38,7 @@ h1 {
     text-align: center;
 }
 
+
 a {
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
@@ -91,8 +92,10 @@ main {
                 "graph info"
 }
 
-#graphic {
+#graph {
     grid-area: graph;
+    display: flex;
+    flex-direction: column;
 }
 
 #info {
@@ -148,6 +151,14 @@ main {
     max-width: 40vw;
     max-height: 40vh;
     margin: 1%;
+}
+
+#glass {
+    width: 100px;
+    height: 160px;
+    align-self: center;
+    margin-top: 15%;
+    margin-left: 5%;
 }
 
 
@@ -248,6 +259,11 @@ main {
 }
 [id^="label"]{
     visibility: hidden;
+
+}
+
+#labelBeer0 {
+    visibility: visible;
 }
 
 #brand{
