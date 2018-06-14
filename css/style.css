@@ -331,10 +331,10 @@ main {
     visibility: hidden;
 
 }
-
+/* 
 #labelBeer0 {
     visibility: visible;
-}
+} */
 
 #brand{
     display: none;
