@@ -72,6 +72,7 @@ a {
 nav {
     grid-area: nav;
     background-color: #333333;
+    min-width: 21vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -365,4 +366,75 @@ main {
     display: inline-block;
     padding-left: 1vw;
     text-align: center;
+}
+/* MONITOR  - QUEUE - TAPS*/
+#monitor{
+    position: absolute;
+    top: 103vh;
+    right: 2vw;
+    width: 22vw;
+}
+
+#barZoom{
+    position: absolute;
+    top: 160vh;
+    height: 20vw;
+    /* width: 55vw; */
+    left: 20vw;
+}
+
+
+@keyframes c1c2 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    40% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+
+#circles #c1, #circles #c2{
+    animation-duration: 4s;
+    animation-name: c1c2;
+    animation-iteration-count: infinite;
+}
+
+@keyframes c3c4 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    40% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+
+#circles #c3, #circles #c4{
+    animation: move 4s infinite ease-out;
+    animation-name: c3c4;
+    animation-delay: 2s;
+}
+
+@keyframes c5c6 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    40% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+#circles #c5, #circles #c6{
+    animation: move 4s infinite ease-out;
+    animation-name: c5c6;
+    animation-delay: 1s;
+}
+
+@keyframes c7c8 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    80% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+
+#circles #c7, #circles #c8{
+    animation: move 4s infinite ease-out;
+    animation-name: c7c8;
+    animation-delay: 3s;
 }

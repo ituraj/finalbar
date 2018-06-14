@@ -42,6 +42,10 @@ async function loadKeg() {
 
 document.querySelector("#handle").addEventListener("click", function() {
 let handle = document.querySelector("#handle");
+let circles =  document.querySelector("#circles");
+// circles.style.visibility = "visible";
+// circles.style.transform = "rotate(90deg)";
+// circles.style.transformOrigin="45% 80% 0px";
 handle.style.fill = "grey";
 handle.style.transform="rotate(90deg)";
 handle.style.transformOrigin="55% 38% 0px";
