@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", loadKeg);
 
 let data = JSON.parse(FooBar.getData());
 let beersLength = data.beertypes.length;
+
+
+console.log(data.beertypes.length);
+console.log(data.beertypes["0"].alc);
+
+
+
+
 let toAdd = document.createElement('div');
 
 for(let i= 0; i<beersLength; i++){
@@ -31,50 +39,21 @@ for(let i= 0; i<beersLength; i++){
 
 async function loadKeg() {
     let svgKeg = await fetch ("images/parentkeg.svg");
-    let svgGlass = await fetch ("images/beer.svg");
     let myKeg = await svgKeg.text();
-    let myGlass = await svgGlass.text();
     document.querySelector("#graphic").innerHTML = myKeg;
-    document.querySelector("#glass").innerHTML = myGlass;
-    let beerColor = document.querySelector("#liquid");
 
 document.querySelector("#handle").addEventListener("click", function() {
 let handle = document.querySelector("#handle");
 handle.style.fill = "grey";
 handle.style.transform="rotate(90deg)";
 handle.style.transformOrigin="55% 38% 0px";
+
 });
 
-document.querySelector("#buttonBeerId0").addEventListener("click", function() {
-    beerColor.style.fill = "#f8b64c";
-    console.log(beerColor);
-});
-
-document.querySelector("#buttonBeerId1").addEventListener("click", function() {
-    beerColor.style.fill = "#b86833";
-    console.log(beerColor);
-});
-
-document.querySelector("#buttonBeerId2").addEventListener("click", function() {
-    beerColor.style.fill = "brown";
-    console.log(beerColor);
-});
-
+document.querySelector("#change").addEventListener("click", function() {
+    let brandClick = document.querySelector("#brand");
+    brandClick.style.fill = "aqua";
+    });
 }
 
-// let z = 0;
 
-function tapButton(){
-    for (let i = 0; i < 10; i++) {
-        document.querySelector("#buttonBeerId" + i).addEventListener("click", function() {
-            let brandClick = document.querySelector("#labelBeer" + i);
-            brandClick.style.visibility = "visible";
-            console.log(brandClick)
-            });
-        // document.querySelector("#buttonBeerId" + i).addEventListener("click", function() {
-        //     document.querySelector("#labelBeer" + i).style.zIndex = ++z;
-    //  });
- }
-}
-
-tapButton();
