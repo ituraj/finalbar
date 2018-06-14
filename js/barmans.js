@@ -184,6 +184,8 @@ function tapsState(){
     let tap;
     let isInUse;
     let tapsDiv = document.getElementById("tapsDiv");
+
+    console.log(tempTapsArr);
     for(let i=0; i<tempTapsArr.length; i++){
         tap= tempTapsArr[i].beer;
         isInUse = tempTapsArr[i].inUse;
@@ -238,8 +240,6 @@ function checkIfBoredomBreak(){
     
     if(breakCounterArr[i]==5){
         console.log(data.bartenders[i].name +" is taking a break out of boredom");
-        data.bartenders.splice(i,1);
-        console.log(data.bartenders);
     }
 
     if(breakCounterArr[i]>0)
@@ -306,6 +306,13 @@ function updateStorage(){
         amount = tempKegsArr[i].amount;
         keg = document.getElementById('kegAmountId'+ i);
         keg.innerHTML = amount;
+        for(let j = 0; j<amount; j++){
+            let tempSvg = document.createElement('img');
+            newSvg.id = 'barrelSvg'+j;
+            newSvg.className = 'barrelSvg';
+            newSvg.setAttribute("src", "images/barrel"+ i+".svg");
+            newKegContainer.appendChild(newSvg);
+        }
         
     }
 }
