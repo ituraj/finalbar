@@ -153,6 +153,7 @@ main {
     margin: 1%;
 }
 
+<<<<<<< HEAD
 #glass {
     width: 100px;
     height: 160px;
@@ -161,6 +162,11 @@ main {
     margin-left: 5%;
 }
 
+=======
+.barrel {
+    width: 5vw;
+}
+>>>>>>> d0ec3ba52b9d58637291f6edf4b3681f28375ade
 
 /* ----- Bartenders Section ----- */
 
@@ -276,11 +282,23 @@ main {
 
 #kegsDiv{
     position: absolute;
-    bottom: -20vh;
+    bottom: -35vh;
     left: 20vw;
 }
 
 .kegContainerClass{
+    display: inline-block;
+    padding-left: 1vw;
+    text-align: center;
+}
+
+#tapsDiv{
+    position: absolute;
+    bottom: -20vh;
+    left: 20vw;
+}
+
+.tapContainerClass{
     display: inline-block;
     padding-left: 1vw;
     text-align: center;

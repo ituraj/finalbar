@@ -45,6 +45,7 @@ function start(){
     document.body.appendChild(bartendersWrapper);
 
     storageState();
+    tapsState();
     
 
 
@@ -163,6 +164,50 @@ function diamondColour(i){
 
 }
 
+
+
+
+
+function tapsState(){
+    let data = updateData();
+    let tempTapsArr=data.taps;
+    let tap;
+    let isInUse;
+    let tapsDiv = document.getElementById("tapsDiv");
+    for(let i=0; i<tempTapsArr.length; i++){
+        tap= tempTapsArr[i].beer;
+        isInUse = tempTapsArr[i].inUse;
+
+            let newTapContainer = document.createElement('div');
+             let newTap = document.createElement('p');
+             let newTapInUse = document.createElement('p');
+     
+             newTapContainer.id = 'tapContainerId'+i;
+            newTap.id = 'tapId'+i;
+             newTapInUse.id = 'tapInUseId'+i;
+             
+             newTapContainer.className = 'tapContainerClass';
+             newTap.className = 'tapClass';
+             newTapInUse.className = 'tapInUseClass';
+
+            newTap.innerHTML = tap;
+            newTapInUse.innerHTML = isInUse;
+
+            newTapContainer.appendChild(newTap);
+            newTapContainer.appendChild(newTapInUse);
+            tapsDiv.appendChild(newTapContainer);
+
+
+    }
+
+
+}
+
+
+
+
+
+
 function storageState(){
     let data = updateData();
     let tempKegsArr=data.storage;
@@ -211,6 +256,21 @@ function updateStorage(){
         
     }
 }
+
+function updateTaps(){
+    let data = updateData();
+    let tempTapsArr=data.taps;
+    let tap;
+    let isInUse;
+    let tapsDiv = document.getElementById("tapsDiv");
+    for(let i=0; i<tempTapsArr.length; i++){
+        isInUse = tempTapsArr[i].inUse;
+        tap = document.getElementById('tapInUseId'+ i);
+        tap.innerHTML = isInUse;
+        
+    }
+}
+
 
 
 
@@ -268,6 +328,9 @@ function checkPopularity(){
 }
 
 
+
+
+
  
 
 
@@ -282,6 +345,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
         checkPopularity();
         updateTopBeers();
         updateStorage();
+        updateTaps();
         }, 4000);
 
 
@@ -289,3 +353,4 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
 
 
    document.addEventListener("DOMContentLoaded", start());
+    
