@@ -6,6 +6,7 @@ let data = JSON.parse(FooBar.getData());
 let bartendersLength = data.bartenders.length;
 let beersLength = data.beertypes.length;
 let storageLength = data.storage.length;
+let queueLength = data.queue.length;
 let beerNames = [];
 let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
 let storageArr = [];
@@ -46,6 +47,7 @@ function start(){
 
     storageState();
     tapsState();
+    queueState();
     
 
 
@@ -119,9 +121,7 @@ function start(){
     }
 }
 
-function updateData(){
-    data = JSON.parse(FooBar.getData());
-}
+
 
 
 function updateBartenders(){
@@ -164,7 +164,18 @@ function diamondColour(i){
 }
 
 
+function queueState(){
+    let queueDiv = document.getElementById("queueDiv");
+    let newQueueNumber = document.createElement('p');
 
+    newQueueNumber.id = 'queueNumberId';
+
+    newQueueNumber.innerHTML = queueLength;
+
+    queueDiv.appendChild(newQueueNumber);
+
+
+}
 
 
 function tapsState(){
@@ -201,6 +212,35 @@ function tapsState(){
 
 }
 
+let breakCounterArr = Array.apply(null, Array(bartendersLength)).map(Number.prototype.valueOf,0);
+
+function checkIfBoredomBreak(){
+
+    for(let i=0;i<bartendersLength; i++){
+
+    if(data.bartenders[i].status == "READY"){
+        console.log("is working");
+        breakCounterArr[i]++;
+    }
+    else{
+        breakCounterArr[i] = 0;
+    }
+    
+    if(breakCounterArr[i]==5){
+        console.log(data.bartenders[i].name +" is taking a break out of boredom");
+        data.bartenders.splice(i,1);
+        console.log(data.bartenders);
+    }
+
+    if(breakCounterArr[i]>0)
+    console.log(data.bartenders[i].name + " " +breakCounterArr[i])
+
+}
+}
+
+function checkIfTimeForBreak(){
+
+}
 
 
 
@@ -320,6 +360,20 @@ function checkPopularity(){
 
 }
 
+function updateQueue(){
+    let queueNumber = document.getElementById("queueNumberId");
+    queueLength = data.queue.length;
+
+    queueNumber.innerHTML = queueLength;
+}
+
+
+
+function updateData(){
+    data = JSON.parse(FooBar.getData());
+}
+
+
 
 
 
@@ -331,6 +385,9 @@ function checkPopularity(){
 window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateData();
     updateBartenders();
+    checkIfBoredomBreak();
+    updateQueue();
+    
     }, 1000);
 
     window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 4 SECS
@@ -339,6 +396,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
         updateTopBeers();
         updateStorage();
         updateTaps();
+       
         }, 4000);
 
 
