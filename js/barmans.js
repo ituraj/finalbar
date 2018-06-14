@@ -102,7 +102,7 @@ function start(){
         newName.className = 'bartenderName';
 
         newSvg.setAttribute("src", "images/" + data.bartenders[i].name + ".svg");
-        newStatusDetail.innerHTML = datagit.bartenders[i].statusDetail;
+        newStatusDetail.innerHTML = data.bartenders[i].statusDetail;
 
         bartendersWrapper.appendChild(bartendersContainer);
         bartendersContainer.appendChild(newSvg);
