@@ -36,7 +36,7 @@ async function loadKeg() {
     let myGlass = await svgGlass.text();
     document.querySelector("#graphic").innerHTML = myKeg;
     document.querySelector("#glass").innerHTML = myGlass;
-    let liquid = document.querySelector("#liquid");
+    let beerColor = document.querySelector("#liquid");
 
 document.querySelector("#handle").addEventListener("click", function() {
 let handle = document.querySelector("#handle");
@@ -46,23 +46,18 @@ handle.style.transformOrigin="55% 38% 0px";
 });
 
 document.querySelector("#buttonBeerId0").addEventListener("click", function() {
-    liquid.style.fill = "#f8b64c";
+    beerColor.style.fill = "#f8b64c";
+    console.log(beerColor);
 });
 
 document.querySelector("#buttonBeerId1").addEventListener("click", function() {
-    liquid.style.background = "brown";
+    beerColor.style.fill = "#b86833";
+    console.log(beerColor);
 });
 
 document.querySelector("#buttonBeerId2").addEventListener("click", function() {
-    liquid.style.background = "green";
-});
-
-document.querySelector("#buttonBeerId3").addEventListener("click", function() {
-    liquid.style.background = "black";
-});
-
-document.querySelector("#buttonBeerId4").addEventListener("click", function() {
-    liquid.style.background = "aqua";
+    beerColor.style.fill = "brown";
+    console.log(beerColor);
 });
 
 }
