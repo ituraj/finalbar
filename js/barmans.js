@@ -1,11 +1,11 @@
 "use strict";
 
 
-let datas= JSON.parse(FooBar.getData());
+let data = JSON.parse(FooBar.getData());
 
-let bartendersLength = datas.bartenders.length;
-let beersLength = datas.beertypes.length;
-let storageLength = datas.storage.length;
+let bartendersLength = data.bartenders.length;
+let beersLength = data.beertypes.length;
+let storageLength = data.storage.length;
 let beerNames = [];
 let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
 let storageArr = [];
@@ -62,7 +62,7 @@ function start(){
             else{
             row2.appendChild(newTopBeer);
             }
-            beerNames.push(datas.beertypes[i].name);
+            beerNames.push(data.beertypes[i].name);
 
     }
   
@@ -101,8 +101,8 @@ function start(){
         newStatusDetail.className = 'statusDetail';
         newName.className = 'bartenderName';
 
-        newSvg.setAttribute("src", "images/" + datas.bartenders[i].name + ".svg");
-        newStatusDetail.innerHTML = datas.bartenders[i].statusDetail;
+        newSvg.setAttribute("src", "images/" + data.bartenders[i].name + ".svg");
+        newStatusDetail.innerHTML = datagit.bartenders[i].statusDetail;
 
         bartendersWrapper.appendChild(bartendersContainer);
         bartendersContainer.appendChild(newSvg);
@@ -120,14 +120,13 @@ function start(){
 }
 
 function updateData(){
-    return JSON.parse(FooBar.getData());
+    data = JSON.parse(FooBar.getData());
 }
 
 
 function updateBartenders(){
 
         
-         let data = updateData();
          let currentStatus;
 
     for(let i= 0; i<bartendersLength; i++){
@@ -148,7 +147,7 @@ function updateBartenders(){
 
 function diamondColour(i){
 
-    let data = updateData();
+    
 
 
     if (data.bartenders[i].status=="WORKING") {
@@ -169,7 +168,6 @@ function diamondColour(i){
 
 
 function tapsState(){
-    let data = updateData();
     let tempTapsArr=data.taps;
     let tap;
     let isInUse;
@@ -209,7 +207,6 @@ function tapsState(){
 
 
 function storageState(){
-    let data = updateData();
     let tempKegsArr=data.storage;
     let keg;
     let amount;
@@ -244,7 +241,6 @@ function storageState(){
 }
 
 function updateStorage(){
-    let data = updateData();
     let tempKegsArr=data.storage;
     let keg;
     let amount;
@@ -258,7 +254,6 @@ function updateStorage(){
 }
 
 function updateTaps(){
-    let data = updateData();
     let tempTapsArr=data.taps;
     let tap;
     let isInUse;
@@ -275,7 +270,6 @@ function updateTaps(){
 
 
 function updateTopBeers(){
-    let data = updateData();
 
   /////////DOWNLOADED FUNCTION FOR ARRAY MERGE I DONT UNDERSTAND THE WAY ITS DECLARED
         Array.prototype.zip = function (arr) {
@@ -315,7 +309,6 @@ async function loadSvg(i) {
 
 
 function checkPopularity(){
-    let data = updateData();
 
     for(let i= 0; i<bartendersLength; i++){
        if(data.bartenders[i].statusDetail == "receivePayment"){
