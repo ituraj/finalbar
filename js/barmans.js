@@ -102,7 +102,7 @@ function start(){
         newName.className = 'bartenderName';
 
         newSvg.setAttribute("src", "images/" + data.bartenders[i].name + ".svg");
-        newStatusDetail.innerHTML = datagit.bartenders[i].statusDetail;
+        newStatusDetail.innerHTML = data.bartenders[i].statusDetail;
 
         bartendersWrapper.appendChild(bartendersContainer);
         bartendersContainer.appendChild(newSvg);
@@ -201,6 +201,35 @@ function tapsState(){
 
 }
 
+let breakCounterArr = Array.apply(null, Array(bartendersLength)).map(Number.prototype.valueOf,0);
+
+function checkIfBoredomBreak(){
+
+    for(let i=0;i<bartendersLength; i++){
+
+    if(data.bartenders[i].status == "WORKING"){
+        console.log("is working");
+        breakCounterArr[i]++;
+    }
+    else{
+        breakCounterArr[i] = 0;
+    }
+    
+    if(breakCounterArr[i]==5){
+        console.log(data.bartenders[i].name +" is taking a break out of boredom");
+        data.bartenders.splice(i,1);
+        console.log(data.bartenders);
+    }
+
+    if(breakCounterArr[i]>0)
+    console.log(data.bartenders[i].name + " " +breakCounterArr[i])
+
+}
+}
+
+function checkIfTimeForBreak(){
+
+}
 
 
 
@@ -331,6 +360,8 @@ function checkPopularity(){
 window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateData();
     updateBartenders();
+    checkIfBoredomBreak();
+    
     }, 1000);
 
     window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 4 SECS
