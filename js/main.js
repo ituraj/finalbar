@@ -36,11 +36,9 @@ async function loadKeg() {
     let myGlass = await svgGlass.text();
     document.querySelector("#graphic").innerHTML = myKeg;
     document.querySelector("#glass").innerHTML = myGlass;
-    let beerColor = document.querySelector("#liquid");
 
 document.querySelector("#handle").addEventListener("click", function() {
 let handle = document.querySelector("#handle");
-let circles =  document.querySelector("#circles");
 handle.style.fill = "grey";
 handle.style.transform="rotate(90deg)";
 handle.style.transformOrigin="55% 38% 0px";
