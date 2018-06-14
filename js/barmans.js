@@ -156,11 +156,15 @@ function diamondColour(i){
     if (data.bartenders[i].status=="WORKING") {
         
         $("#diamond"+i+">#diamond>#dcolour").css("fill", "#d85459")
+        $("#diamond"+i+">#diamond>#inside").css("fill", "#d85459")
+
 
     } else if (data.bartenders[i].status=="READY") {
-        $("#diamond"+i+">#diamond>#dcolour").css("fill", "green")
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "#59D854")
+        $("#diamond"+i+">#diamond>#inside").css("fill", "#59D854")
     } else {
-        $("#diamond"+i+">#diamond>#dcolour").css("fill", "grey")
+        $("#diamond"+i+">#diamond>#dcolour").css("fill", "#d3d3d3")
+        $("#diamond"+i+">#diamond>#inside").css("fill", "#d3d3d3")
 
     }
 

@@ -246,9 +246,9 @@ main {
 
 #blackboard{
     position: absolute;
-    top: 3vh;
-    right: 2vw;
-    width: 28vw;
+    /* top: 1vh; */
+    right: 0.5vw;
+    width: 32vw;
 }
 
 #woodenBar{
@@ -333,7 +333,7 @@ main {
     display: none;
 
 }
-[id^="label"]{
+[id^="labelBeer"]{
     visibility: hidden;
 
 }
@@ -350,10 +350,6 @@ main {
 #brand{
     display: none;
 }
-
-/* #circle{
-    display: none;
-} */
 
 
 
