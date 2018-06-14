@@ -47,33 +47,41 @@ handle.style.transform="rotate(90deg)";
 handle.style.transformOrigin="55% 38% 0px";
 });
 
-document.querySelector("#buttonBeerId0").addEventListener("click", function() {
-    beerColor.style.fill = "#f8b64c";
-    console.log(beerColor);
-});
+// document.querySelector("#buttonBeerId0").addEventListener("click", function() {
+//     beerColor.style.fill = "#f8b64c";
+//     console.log(beerColor);
+// });
 
-document.querySelector("#buttonBeerId1").addEventListener("click", function() {
-    beerColor.style.fill = "#b86833";
-    console.log(beerColor);
-});
+// document.querySelector("#buttonBeerId1").addEventListener("click", function() {
+//     beerColor.style.fill = "#b86833";
+//     console.log(beerColor);
+// });
 
-document.querySelector("#buttonBeerId2").addEventListener("click", function() {
-    beerColor.style.fill = "brown";
-    console.log(beerColor);
-});
+// document.querySelector("#buttonBeerId2").addEventListener("click", function() {
+//     beerColor.style.fill = "brown";
+//     console.log(beerColor);
+// });
 
 }
+
+document.addEventListener('click', function () {
+	if (!event.target.classList.contains('buttonBeer')) return;
+	event.target.classList.add('active');
+	var links = document.querySelectorAll('.buttonBeer');
+	for (var i = 0; i < links.length; i++) {
+		if (links[i] === event.target) continue;
+		links[i].classList.remove('active');
+	}
+}, false);
 
 function tapButton(){
     for (let i = 0; i < 10; i++) {
         document.querySelector("#buttonBeerId" + i).addEventListener("click", function(e) {
-            let btn = document.querySelector("#buttonBeerId" + i);
             let brandClick = document.querySelector("#labelBeer" + i);
-            btn.setAttribute("class", "active");
+            if(document.querySelector('.active')){
                 brandClick.style.visibility = "visible";
+            }
  });
 }
 }
-
-
 tapButton();
