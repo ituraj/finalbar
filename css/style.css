@@ -336,6 +336,11 @@ main {
 
 }
 
+[id^="lbl"]{
+    visibility: hidden;
+
+}
+
 #labelBeer0 {
     visibility: visible;
 }
@@ -343,6 +348,8 @@ main {
 #brand{
     display: none;
 }
+
+
 
 #kegsDiv{
     position: absolute;
