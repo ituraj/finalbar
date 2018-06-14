@@ -66,6 +66,7 @@ nav {
 
 nav ul {
     list-style: none;
+    padding: 0;
 }
 
 ul li {
@@ -79,6 +80,7 @@ li a{
 
 header {
     grid-area: hd;
+    background-color: #d9d9d9;
 }
 
 /* ----- Main ----- */
@@ -87,9 +89,10 @@ main {
     grid-area: main;
     background-color: #d9d9d9;
     display: grid;
-    grid-template-columns: 2fr 3fr;
+    grid-template-columns: 2fr 2fr;
     grid-template-areas: 
                 "graph info"
+                "des des"
 }
 
 #graph {
@@ -98,29 +101,59 @@ main {
     flex-direction: column;
 }
 
-#info {
+#general-info {
     grid-area: info;
-    background-color: #e66465;
-    color: white;
+    color: black;
     font-family: 'Open Sans', sans-serif;
     padding: 1.3em;
 }
 
-#graphic, #info {
-    margin: 5%;
+#description {
+    grid-area: des;
+    width: 80vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-template-areas: 
+            "app ar"
+            "fla feel";
+    grid-gap: 2%;
 }
 
-#info p {
-    padding: 0.3em;
-    font-size: 1rem;
+#appearance, #aroma, #flavor, #mouthfeel {
+    width: 30vw;
+    height: 40vh;
+    background-color: #fff;
+    font-size: 0.7em;
+    margin: 2%;
+    padding:1em;
+    justify-self: center;
+}
+
+#appearance {grid-area: app;}
+
+#aroma {grid-area: ar;}
+
+#flavor {grid-area: fla;}
+
+#mouthfeel {grid-area: feel;}
+
+#graph {
+    margin: 5% 0;
 }
 
 #general-info {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    background-color: #9198e5;
+    background-color: #fff;
+    padding: 0.5em;
+    font-size: 1rem;
+    margin: 5% 10% 15% 12%;
 }
+
+#title {
+    display: inline-block;
+}
+
+
 
 /* ----- Beer Section ----- */
 
@@ -130,7 +163,7 @@ main {
         color: white;
         padding: 12px 40px;
         text-align: center;
-        font-size: 16px;
+        font-size: 0.8;
         margin: 4px 2px;
         opacity: 1;
         display: inline-block;
@@ -140,12 +173,23 @@ main {
       
       .buttonBeer:hover {
           opacity: 1;
-          background-color:green;
+          background-color:#e66465;
     }
 
     .buttonBeer:active {
         text-decoration: none;
   }
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.buttonBeer {
+    flex-grow: 1;
+}
+
 
 #keg, svg {
     max-width: 40vw;
