@@ -1,3 +1,5 @@
+`use strict`;
+
 document.addEventListener("DOMContentLoaded", loadKeg);
 
 let data = JSON.parse(FooBar.getData());
@@ -15,11 +17,11 @@ for(let i= 0; i<beersLength; i++){
             document.getElementById("bName").innerHTML = data.beertypes[i].name;
             document.getElementById("bAlc").innerHTML = data.beertypes[i].alc + "%";
             document.getElementById("bCategory").innerHTML = data.beertypes[i].category;
-            document.getElementById("bAppearance").innerHTML = "<b>Appearance</b>" + "<br>" + data.beertypes[i].description.appearance;
-            document.getElementById("bAroma").innerHTML = "<b>Aroma</b>" + "<br>" + data.beertypes[i].description.aroma;
-            document.getElementById("bFlavor").innerHTML = "<b>Flavor</b>" + "<br>" + data.beertypes[i].description.flavor;
-            document.getElementById("bMouthfeel").innerHTML = "<b>Mouthfeel</b>" + "<br>" + data.beertypes[i].description.mouthfeel;
-            document.getElementById("bOverallImpression").innerHTML = "<b>Overall impression</b>" + "<br>" + data.beertypes[i].description.overallImpression;
+            document.getElementById("bAppearance").innerHTML = "<h2>Appearance</h2>" + "<br>" + data.beertypes[i].description.appearance;
+            document.getElementById("bAroma").innerHTML = "<h2>Aroma</h2>" + "<br>" + data.beertypes[i].description.aroma;
+            document.getElementById("bFlavor").innerHTML = "<h2>Flavor</h2>" + "<br>" + data.beertypes[i].description.flavor;
+            document.getElementById("bMouthfeel").innerHTML = "<h2>Mouthfeel</h2>" + "<br>" + data.beertypes[i].description.mouthfeel;
+            document.getElementById("bOverallImpression").innerHTML = data.beertypes[i].description.overallImpression;
             // document.getElementById("bPopularity").innerHTML = "<b>Popularity: </b>" + data.beertypes[i].popularity;
             // document.getElementById("bPouringSpeed").innerHTML = "<b>Pouring Speed: </b>" + data.beertypes[i].pouringSpeed;
         }
@@ -62,19 +64,16 @@ document.querySelector("#buttonBeerId2").addEventListener("click", function() {
 
 }
 
-// let z = 0;
-
 function tapButton(){
     for (let i = 0; i < 10; i++) {
-        document.querySelector("#buttonBeerId" + i).addEventListener("click", function() {
+        document.querySelector("#buttonBeerId" + i).addEventListener("click", function(e) {
+            let btn = document.querySelector("#buttonBeerId" + i);
             let brandClick = document.querySelector("#labelBeer" + i);
-            brandClick.style.visibility = "visible";
-            console.log(brandClick)
-            });
-        // document.querySelector("#buttonBeerId" + i).addEventListener("click", function() {
-        //     document.querySelector("#labelBeer" + i).style.zIndex = ++z;
-    //  });
- }
+            btn.setAttribute("class", "active");
+                brandClick.style.visibility = "visible";
+ });
 }
+}
+
 
 tapButton();
