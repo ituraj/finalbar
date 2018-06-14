@@ -6,6 +6,8 @@ let data = JSON.parse(FooBar.getData());
 let beersLength = data.beertypes.length;
 let toAdd = document.createElement('div');
 
+// Create new button for every beer type and get data on click
+
 for(let i= 0; i<beersLength; i++){
    let newButton = document.createElement('button');
    newButton.id = 'buttonBeerId'+i;
@@ -45,6 +47,8 @@ handle.style.transformOrigin="55% 38% 0px";
 });
 }
 
+// Add and remove 'active' class for every sibling src: https://goo.gl/9x8Bv6
+
 document.addEventListener('click', function () {
     if (!event.target.classList.contains('buttonBeer')) return;
     event.target.classList.add('active');
@@ -55,11 +59,13 @@ document.addEventListener('click', function () {
    }
 }, false);
 
+// Get different beer labels on each button
+
 function tapButton(){
    for (let i = 0; i < 10; i++) {
        document.querySelector("#buttonBeerId" + i).addEventListener("click", function() {
            let brandClick = document.querySelector("#labelBeer" + i);
-           let labelz = $('[id^="label"]');
+           let labelz = $('[id^="labelBeer"]');
            labelz.css("visibility", "hidden");
            brandClick.style.visibility = "visible";
            console.log(brandClick)

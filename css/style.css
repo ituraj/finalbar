@@ -333,7 +333,7 @@ main {
     display: none;
 
 }
-[id^="label"]{
+[id^="labelBeer"]{
     visibility: hidden;
 
 }
@@ -345,12 +345,6 @@ main {
 #brand{
     display: none;
 }
-
-#circle{
-    display: none;
-}
-
-
 
 #kegsDiv{
     position: absolute;
