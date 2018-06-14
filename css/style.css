@@ -338,6 +338,11 @@ main {
 
 }
 
+[id^="lbl"]{
+    visibility: hidden;
+
+}
+
 #labelBeer0 {
     visibility: visible;
 }
@@ -346,9 +351,9 @@ main {
     display: none;
 }
 
-#circle{
+/* #circle{
     display: none;
-}
+} */
 
 
 
