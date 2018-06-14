@@ -38,6 +38,16 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-family: 'Roboto', cursive;
+    font-size: 1.2em;
+    color: #111;
+    text-align: left;
+    padding: 0 0 1em 0;
+    border-bottom: 2px solid #3d4b50;
+    
+}
+
 
 a {
     font-family: 'Roboto', sans-serif;
@@ -62,16 +72,23 @@ a {
 nav {
     grid-area: nav;
     background-color: #333333;
+    min-width: 21vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    position: fixed;
 }
 
 ul li {
     text-align: center;
 }
+
 
 li a{
     color: #fff;
@@ -144,20 +161,25 @@ main {
 
 #general-info {
     background-color: #fff;
-    padding: 0.5em;
-    font-size: 1rem;
+    padding: 1.2em;
+    font-size: 1em;
     margin: 5% 10% 15% 12%;
 }
 
 #title {
+    border-bottom: 2px solid #3d4b50;
+}
+
+#title p{
     display: inline-block;
 }
 
 
 
+
 /* ----- Beer Section ----- */
 
-.buttonBeer {
+.buttonBeer, .active {
         background-color:#3d4b50;
         border: none;
         color: white;
@@ -176,9 +198,9 @@ main {
           background-color:#e66465;
     }
 
-    .buttonBeer:active {
-        text-decoration: none;
-  }
+.active {
+    background-color: #e66465;
+}
 
 .buttons {
     display: flex;
@@ -186,7 +208,7 @@ main {
 
 }
 
-.buttonBeer {
+.buttonBeer, .active {
     flex-grow: 1;
 }
 
@@ -204,6 +226,7 @@ main {
     margin-top: 15%;
     margin-left: 4%;
 }
+
 
 
 
@@ -373,6 +396,62 @@ main {
     left: 20vw;
 }
 
+
 .svgContainerClass{
     width: 5vw;
+}
+
+@keyframes c1c2 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    40% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+
+#circles #c1, #circles #c2{
+    animation-duration: 4s;
+    animation-name: c1c2;
+    animation-iteration-count: infinite;
+}
+
+@keyframes c3c4 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    40% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+
+#circles #c3, #circles #c4{
+    animation: move 4s infinite ease-out;
+    animation-name: c3c4;
+    animation-delay: 2s;
+}
+
+@keyframes c5c6 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    40% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+#circles #c5, #circles #c6{
+    animation: move 4s infinite ease-out;
+    animation-name: c5c6;
+    animation-delay: 1s;
+}
+
+@keyframes c7c8 {
+    0% {transform: translateY(0px);
+    opacity: 0;}
+    80% {opacity: 0.9;}
+    100% {transform: translateY(-330px); opacity:0;}
+} 
+
+
+#circles #c7, #circles #c8{
+    animation: move 4s infinite ease-out;
+    animation-name: c7c8;
+    animation-delay: 3s;
 }
