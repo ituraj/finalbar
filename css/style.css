@@ -56,16 +56,24 @@ a {
 
 /* -----    Grid    ----- */
 
-.container{
+#barContainer, #beerContainer{
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: .5fr 9.5fr;
     grid-template-areas: 
                 "nav hd hd"
                 "nav main main";
+}
+
+#barContainer{
     width: 100vw;
     height: 300vw;
 }
+
+#beerContainer{
+    width: 100vw;
+    height: 100vw;
+    }
 
 /* ----- Header & Navigation ----- */
 
