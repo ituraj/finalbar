@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", loadKeg);
 
 let data = JSON.parse(FooBar.getData());
+console.log(data);
 let beersLength = data.beertypes.length;
 let toAdd = document.createElement('div');
 
@@ -72,6 +73,9 @@ function tapButton(){
            });
 }
 }
+
+
+
 tapButton();
 
 

@@ -21,12 +21,9 @@ body, main, nav, header {
 }
 body{
     background: linear-gradient(#e66465, #9198e5);
-
-}
-
-body {
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
+
 }
 
 /* ----- Typography ----- */
@@ -56,6 +53,7 @@ a {
 
 /* -----    Grid    ----- */
 
+
 #barContainer, #beerContainer{
     display: grid;
     grid-template-columns: 2fr 8fr;
@@ -72,9 +70,9 @@ a {
 
 #beerContainer{
     width: 100vw;
-    height: 100vw;
+    height: auto;
     }
-
+    
 /* ----- Header & Navigation ----- */
 
 nav {
