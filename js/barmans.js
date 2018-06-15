@@ -167,39 +167,32 @@ function queueState(){
 function tapsState(){
     let tempTapsArr=data.taps;
     let tap;
-    let isInUse;
     let tapsDiv = document.getElementById("tapsDiv");
 
     console.log(tempTapsArr);
     for(let i=0; i<tempTapsArr.length; i++){
         tap= tempTapsArr[i].beer;
-        isInUse = tempTapsArr[i].inUse;
 
             let newTapContainer = document.createElement('div');
             let newSvgContainer = document.createElement('div');
 
              let newTap = document.createElement('p');
-             let newTapInUse = document.createElement('p');
      
              newTapContainer.id = 'tapContainerId'+i;
              newSvgContainer.id = 'svgContainerId'+i;
 
             newTap.id = 'tapId'+i;
-             newTapInUse.id = 'tapInUseId'+i;
              
              newTapContainer.className = 'tapContainerClass';
              newSvgContainer.className = 'svgContainerClass';
              newTap.className = 'tapClass';
-             newTapInUse.className = 'tapInUseClass';
 
             newTap.innerHTML = tap;
-            newTapInUse.innerHTML = isInUse;
 
 
  
         
             newTapContainer.appendChild(newTap);
-            newTapContainer.appendChild(newTapInUse);
             newTapContainer.appendChild(newSvgContainer);
             tapsDiv.appendChild(newTapContainer);
 
@@ -305,8 +298,7 @@ function updateTaps(){
 
     for(let i=0; i<tempTapsArr.length; i++){
         isInUse = tempTapsArr[i].inUse;
-        tap = document.getElementById('tapInUseId'+ i);
-        tap.innerHTML = isInUse;
+
         let handle = $("#svgContainerId"+i+">#Layer_1>#hand>#handle")
 
         if(isInUse==true){
@@ -389,7 +381,7 @@ function updateTopBeers(){
     // console.log(tempArraySorted);
 
      for(let i = 0; i< beerNames.length; i++){
-     document.getElementById("topBeerSpan"+i).innerHTML = tempArraySorted[i];}
+     document.getElementById("topBeerSpan"+i).innerHTML = tempArraySorted[i][0] + " ("+tempArraySorted[i][1]+ ")";}
 }
 
 
@@ -504,12 +496,18 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
         updateTopBeers();
         updateStorage();
         updateTaps();
-        
+        loadTapLabels();
        
         }, 4000);
 
 
 
+
+        window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 10 SECS
+    
+            loadTapLabels();  ///// in case of slow loading
+           
+            }, 10000);
 
 
    document.addEventListener("DOMContentLoaded", start());
