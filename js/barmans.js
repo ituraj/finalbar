@@ -254,7 +254,7 @@ function storageState(){
             newKeg.className = 'kegClass';
 
            newKeg.innerHTML = keg;
-
+           
            newKegContainer.appendChild(newKeg);
            for(let j = 0; j<amount; j++){
                let newSvg = document.createElement('img');
@@ -262,8 +262,8 @@ function storageState(){
                newSvg.className = 'barrelSvg';
                newSvg.setAttribute("src", "images/barrel"+ i+".svg");
                newKegContainer.appendChild(newSvg);
-           }
-           kegsDiv.appendChild(newKegContainer);
+            }
+            kegsDiv.appendChild(newKegContainer);
 
 
    }
