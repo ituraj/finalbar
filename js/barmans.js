@@ -49,7 +49,7 @@ function start(){
     tapsState();
     queueState();
     loadKeg();
-    setTimeout(function(){loadTapLabels();}, 1500);
+    setTimeout(function(){loadTapLabels();}, 2500);
     tapsOnMainBar();
 
 
