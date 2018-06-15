@@ -476,3 +476,8 @@ main {
     animation-name: c7c8;
     animation-delay: 3s;
 }
+
+.tapMainContainerClass{
+    display: inline-block;
+    width: 2vw;
+}
