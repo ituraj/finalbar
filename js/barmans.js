@@ -10,7 +10,7 @@ let queueLength = data.queue.length;
 let beerNames = [];
 let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
 let storageArr = [];
-
+let barman = data.bartenders;
 
 
 
@@ -167,12 +167,6 @@ function diamondColour(i){
 
     }
 
-}
-
-function dollar (i){
-    if(data.bartenders[i].statusDetail == "pourBeer"){
-
-    }
 }
 
 
@@ -454,7 +448,6 @@ function checkPopularity(){
     for(let i= 0; i<bartendersLength; i++){
        if(data.bartenders[i].statusDetail == "receivePayment"){
     countPopularity(data.serving[i].order, beerNames);
-    // console.log(beerPopularityArr);
 }
 
     }
@@ -462,6 +455,19 @@ function checkPopularity(){
 }
 
 
+<<<<<<< HEAD
+function USD(){
+    for(let i= 0; i<bartendersLength; i++){
+        if(data.bartenders[i].statusDetail == "receivePayment"){
+
+            document.querySelector("#dollar"+i).style.display="inline-block";
+
+            setTimeout(function(){ 
+            document.querySelector("#dollar"+i).style.display="none";
+            }, 4000);
+        }
+    }
+=======
 function animateBeerPouring(){
     for(let i= 0; i<bartendersLength; i++){
         let handle = $("#tapMainContainerId"+i+">#Layer_1>#hand>#handle")
@@ -480,6 +486,7 @@ function animateBeerPouring(){
             }
         }
     
+>>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
 }
 
 function updateQueue(){
@@ -509,7 +516,11 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateBartenders();
     checkIfBoredomBreak();
     updateQueue();
+<<<<<<< HEAD
+    USD();
+=======
     animateBeerPouring();
+>>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
     
     }, 1000);
 

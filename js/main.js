@@ -16,7 +16,7 @@ for(let i= 0; i<beersLength; i++){
    document.body.appendChild(newButton);
    $(newButton).on('click', 
        function(){
-           document.getElementById("bName").innerHTML = data.beertypes[i].name;
+           document.getElementById("bName").innerHTML = "<b>" + data.beertypes[i].name + "</b>";
            document.getElementById("bAlc").innerHTML = data.beertypes[i].alc + "%";
            document.getElementById("bCategory").innerHTML = data.beertypes[i].category;
            document.getElementById("bAppearance").innerHTML = "<h2>Appearance</h2>" + "<br>" + data.beertypes[i].description.appearance;
@@ -72,6 +72,9 @@ function tapButton(){
            });
 }
 }
+
+
+
 tapButton();
 
 
