@@ -169,6 +169,12 @@ function diamondColour(i){
 
 }
 
+function dollar (i){
+    if(data.bartenders[i].statusDetail == "pourBeer"){
+
+    }
+}
+
 
 function queueState(){
     let queueDiv = document.getElementById("queueDiv");

@@ -356,14 +356,14 @@ main {
 #kegsDiv{
     position: absolute;
     top: 260vh;
-    left: 20vw;
+    left: 25vw;
     width: 70vw;
     font-size: 10px;
 }
 
 .kegContainerClass{
     display: inline-block;
-    padding-left: 1vw;
+    padding-left: 3vw;
     text-align: center;
     width: 3.5vw;
 }
@@ -434,6 +434,7 @@ main {
     animation-duration: 4s;
     animation-name: c1c2;
     animation-iteration-count: infinite;
+    opacity: 0;
 }
 
 @keyframes c3c4 {
@@ -448,6 +449,7 @@ main {
     animation: move 4s infinite ease-out;
     animation-name: c3c4;
     animation-delay: 2s;
+    opacity: 0;
 }
 
 @keyframes c5c6 {
@@ -461,6 +463,7 @@ main {
     animation: move 4s infinite ease-out;
     animation-name: c5c6;
     animation-delay: 1s;
+    opacity: 0;
 }
 
 @keyframes c7c8 {
@@ -475,9 +478,28 @@ main {
     animation: move 4s infinite ease-out;
     animation-name: c7c8;
     animation-delay: 3s;
+
+    opacity: 0;
 }
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity:0;}
+  }
+  .fade-in {
+    animation: fadeIn 5s ease-in 1 forwards;
+    opacity: 0; /* It's not DRY it's needed ;)*/
+    width: 2vw;
+    top: 20vh;
+    position: relative;
+  }
+
+
+
 
 .tapMainContainerClass{
     display: inline-block;
     width: 2vw;
 }
+
