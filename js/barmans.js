@@ -455,7 +455,6 @@ function checkPopularity(){
 }
 
 
-<<<<<<< HEAD
 function USD(){
     for(let i= 0; i<bartendersLength; i++){
         if(data.bartenders[i].statusDetail == "receivePayment"){
@@ -466,8 +465,7 @@ function USD(){
             document.querySelector("#dollar"+i).style.display="none";
             }, 4000);
         }
-    }
-=======
+    }}
 function animateBeerPouring(){
     for(let i= 0; i<bartendersLength; i++){
         let handle = $("#tapMainContainerId"+i+">#Layer_1>#hand>#handle")
@@ -486,7 +484,6 @@ function animateBeerPouring(){
             }
         }
     
->>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
 }
 
 function updateQueue(){
@@ -516,11 +513,8 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateBartenders();
     checkIfBoredomBreak();
     updateQueue();
-<<<<<<< HEAD
     USD();
-=======
     animateBeerPouring();
->>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
     
     }, 1000);
 
