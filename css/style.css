@@ -21,12 +21,9 @@ body, main, nav, header {
 }
 body{
     background: linear-gradient(#e66465, #9198e5);
-
-}
-
-body {
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
+
 }
 
 /* ----- Typography ----- */
@@ -56,6 +53,7 @@ a {
 
 /* -----    Grid    ----- */
 
+
 #barContainer, #beerContainer{
     display: grid;
     grid-template-columns: 2fr 8fr;
@@ -72,9 +70,9 @@ a {
 
 #beerContainer{
     width: 100vw;
-    height: 100vw;
+    height: auto;
     }
-
+    
 /* ----- Header & Navigation ----- */
 
 nav {
@@ -169,7 +167,7 @@ main {
 
 #general-info {
     background-color: #fff;
-    padding: 1.2em;
+    padding: 0 1.2em;
     font-size: 1em;
     margin: 5% 10% 15% 12%;
 }
@@ -180,6 +178,14 @@ main {
 
 #title p{
     display: inline-block;
+}
+
+#brewery {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.2em;
+    background: #333333;
+    color: #fff;
+    text-align: center;
 }
 
 
@@ -478,6 +484,10 @@ main {
     animation: move 4s infinite ease-out;
     animation-name: c7c8;
     animation-delay: 3s;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
     opacity: 0;
 }
 
@@ -494,6 +504,7 @@ main {
     position: relative;
     display: none;
   }
+<<<<<<< HEAD
 .dollars{
     top: 5vh;
 }
@@ -507,3 +518,14 @@ main {
  #dollar2 {
     left: 30vw;
  }
+=======
+
+
+
+
+.tapMainContainerClass{
+    display: inline-block;
+    width: 2vw;
+}
+
+>>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
