@@ -3,14 +3,12 @@
 
 
 /* Table of contents: 
-
 - General
 - Typography
 - Grid
 - Header & Navigation
 - Main
 - Images & Media
-
 */
 
 /* ----- General ----- */
@@ -54,24 +52,27 @@ a {
 /* -----    Grid    ----- */
 
 
-#barContainer, #beerContainer{
+#barContainer {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    grid-template-areas: 
+                "nav hd hd"
+                "nav main main";
+    width: 100vw;
+    height: 200vw;
+}
+
+#beerContainer{
     display: grid;
     grid-template-columns: 2fr 8fr;
     grid-template-rows: .5fr 9.5fr;
     grid-template-areas: 
                 "nav hd hd"
                 "nav main main";
-}
-
-#barContainer{
-    width: 100vw;
-    height: 300vw;
-}
-
-#beerContainer{
     width: 100vw;
     height: auto;
-    }
+}
+
     
 /* ----- Header & Navigation ----- */
 
@@ -254,7 +255,7 @@ main {
     position: absolute;
     /* top: 1vh; */
     right: 0.5vw;
-    width: 32vw;
+    width: 34vw;
 }
 
 #woodenBar{
@@ -411,18 +412,20 @@ main {
 /* MONITOR  - QUEUE - TAPS*/
 #monitor{
     position: absolute;
-    top: 103vh;
+    top: 106vh;
     right: 2vw;
     width: 22vw;
 }
 
 #queueDiv{
+    display: inline-block;
     font-family: 'Shadows Into Light', cursive;
+    line-height: 0.4;
     font-size: 2em;
     color: #fff;
     text-align: center;
     position: absolute;
-    top: 103vh;
+    top: 112vh;
     right: 2vw;
     width: 22vw;
     z-index: 10; 
@@ -513,19 +516,24 @@ main {
     position: relative;
     display: none;
   }
-.dollars{
-    top: 5vh;
-}
- #dollar0 {
-    left: 22vw;
- }
 
- #dollar1 {
-    left: 26vw;
- }
- #dollar2 {
-    left: 30vw;
- }
+#dollar0{
+      position: absolute;
+      top: 20vh;
+      left: 28vw;
+  }
+
+#dollar1{
+    position: absolute;
+    top: 20vh;
+    left: 42vw;
+}
+
+#dollar2{
+    position: absolute;
+    top: 20vh;
+    left: 56vw;
+}
 
 #tapMainContainerId0{
     position: absolute;
