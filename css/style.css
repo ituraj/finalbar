@@ -285,6 +285,7 @@ main {
     left: 25vw;
 }
 
+
 #diamonds{
     width: 60vw; /*must be wider than one dimond or they wont be in horizontal line*/
     position: absolute;
@@ -501,11 +502,26 @@ main {
     position: relative;
   }
 
+#tapMainContainerId0{
+    position: absolute;
+    top: 30vh;
+    left: 24vw;
+}
 
+#tapMainContainerId1{
+    position: absolute;
+    top: 30vh;
+    left: 38vw;
+}
 
+#tapMainContainerId2{
+    position: absolute;
+    top: 30vh;
+    left: 52vw;
+}
 
 .tapMainContainerClass{
     display: inline-block;
-    width: 2vw;
+    width: 3vw;
 }
 
