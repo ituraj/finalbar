@@ -169,7 +169,6 @@ function tapsState(){
     let tap;
     let tapsDiv = document.getElementById("tapsDiv");
 
-    console.log(tempTapsArr);
     for(let i=0; i<tempTapsArr.length; i++){
         tap= tempTapsArr[i].beer;
 
@@ -209,7 +208,6 @@ function checkIfBoredomBreak(){
     for(let i=0;i<bartendersLength; i++){
 
     if(data.bartenders[i].status == "READY"){
-        console.log("is working");
         breakCounterArr[i]++;
     }
     else{
@@ -220,8 +218,7 @@ function checkIfBoredomBreak(){
         console.log(data.bartenders[i].name +" is taking a break out of boredom");
     }
 
-    if(breakCounterArr[i]>0)
-    console.log(data.bartenders[i].name + " " +breakCounterArr[i])
+
 
 }
 }
@@ -346,7 +343,6 @@ function loadTapLabels(){
     
 
 
-    console.log(tempTapsArr);
 
     for(let i=0; i<tempTapsArr.length; i++){
         let beerLabelNr;
@@ -375,10 +371,8 @@ function updateTopBeers(){
             })
         };
    
-    //let tempBeerPopArr = beerPopularityArr.sort(function(a, b){return a - b});
     let tempArray = beerNames.zip(beerPopularityArr);
     let tempArraySorted = tempArray.sort(compareSecondColumn);
-    // console.log(tempArraySorted);
 
      for(let i = 0; i< beerNames.length; i++){
      document.getElementById("topBeerSpan"+i).innerHTML = tempArraySorted[i][0] + " ("+tempArraySorted[i][1]+ ")";}
