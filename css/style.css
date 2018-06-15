@@ -484,10 +484,6 @@ main {
     animation: move 4s infinite ease-out;
     animation-name: c7c8;
     animation-delay: 3s;
-<<<<<<< HEAD
-=======
-
->>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
     opacity: 0;
 }
 
@@ -504,7 +500,6 @@ main {
     position: relative;
     display: none;
   }
-<<<<<<< HEAD
 .dollars{
     top: 5vh;
 }
@@ -518,7 +513,6 @@ main {
  #dollar2 {
     left: 30vw;
  }
-=======
 
 
 
@@ -528,4 +522,3 @@ main {
     width: 2vw;
 }
 
->>>>>>> 93de70eb8366f09dc7044c417f88f27f6373d782
