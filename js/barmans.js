@@ -10,7 +10,7 @@ let queueLength = data.queue.length;
 let beerNames = [];
 let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
 let storageArr = [];
-
+let barman = data.bartenders;
 
 
 
@@ -169,12 +169,6 @@ function diamondColour(i){
 
 }
 
-function dollar (i){
-    if(data.bartenders[i].statusDetail == "pourBeer"){
-
-    }
-}
-
 
 function queueState(){
     let queueDiv = document.getElementById("queueDiv");
@@ -278,18 +272,14 @@ function storageState(){
 
             let newKegContainer = document.createElement('div');
              let newKeg = document.createElement('p');
-             let newKegAmount = document.createElement('p');
      
              newKegContainer.id = 'kegContainerId'+i;
                 newKeg.id = 'kegId'+i;
-             newKegAmount.id = 'kegAmountId'+i;
              
              newKegContainer.className = 'kegContainerClass';
              newKeg.className = 'kegClass';
-             newKegAmount.className = 'kegAmountClass';
 
             newKeg.innerHTML = keg;
-            newKegAmount.innerHTML = amount;
 
             newKegContainer.appendChild(newKeg);
             for(let j = 0; j<amount; j++){
@@ -299,7 +289,6 @@ function storageState(){
                 newSvg.setAttribute("src", "images/barrel"+ i+".svg");
                 newKegContainer.appendChild(newSvg);
             }
-            newKegContainer.appendChild(newKegAmount);
             kegsDiv.appendChild(newKegContainer);
 
 
@@ -316,8 +305,6 @@ function updateStorage(){
     $('#kegsDiv div').find('img').remove()
     for(let i=0; i<storageLength; i++){
         amount = tempKegsArr[i].amount;
-        keg = document.getElementById('kegAmountId'+ i);
-        keg.innerHTML = amount;
         for(let j = 0; j<amount; j++){
             let newKegContainer = document.getElementById('kegContainerId'+ i);
             let newSvg = document.createElement('img');
@@ -461,7 +448,6 @@ function checkPopularity(){
     for(let i= 0; i<bartendersLength; i++){
        if(data.bartenders[i].statusDetail == "receivePayment"){
     countPopularity(data.serving[i].order, beerNames);
-    // console.log(beerPopularityArr);
 }
 
     }
@@ -469,6 +455,17 @@ function checkPopularity(){
 }
 
 
+function USD(){
+    for(let i= 0; i<bartendersLength; i++){
+        if(data.bartenders[i].statusDetail == "receivePayment"){
+
+            document.querySelector("#dollar"+i).style.display="inline-block";
+
+            setTimeout(function(){ 
+            document.querySelector("#dollar"+i).style.display="none";
+            }, 4000);
+        }
+    }}
 function animateBeerPouring(){
     for(let i= 0; i<bartendersLength; i++){
         let handle = $("#tapMainContainerId"+i+">#Layer_1>#hand>#handle")
@@ -516,6 +513,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateBartenders();
     checkIfBoredomBreak();
     updateQueue();
+    USD();
     animateBeerPouring();
     
     }, 1000);
