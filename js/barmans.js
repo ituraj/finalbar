@@ -50,8 +50,7 @@ function start(){
     queueState();
     loadKeg();
     setTimeout(function(){loadTapLabels();}, 1500);
-
-    
+    tapsOnMainBar();
 
 
 
@@ -168,6 +167,12 @@ function diamondColour(i){
 
     }
 
+}
+
+function dollar (i){
+    if(data.bartenders[i].statusDetail == "pourBeer"){
+
+    }
 }
 
 
@@ -360,30 +365,42 @@ async function loadKeg() {
 
 
     for(let i=0; i<tempTapsArr.length; i++){
-
-    let svgKeg = await fetch ("images/parentkeg2.svg");
-    let myKeg = await svgKeg.text();
-    let svgConDiv = document.getElementById("svgContainerId"+i);
-
-    // //let labelz = $('[id^="lbl"]');
-    // //labelz.css("visibility", "hidden");
-    // console.log(i);
-    // let x = $("#tapConainerI#svgContainerId"+i);
-    // //x.css("zIndex", "100");
-    // console.log(x.find("svg"));
-    // //console.log(x);
+        let svgKeg = await fetch ("images/parentkeg2.svg");
+        let myKeg = await svgKeg.text();
+    let svgConDiv = document.getElementById("svgContainerId"+i); ///putting kegs on zoomed bar
     svgConDiv.innerHTML = myKeg;
+    }
+
+
+    for(let i=0; i<bartendersLength; i++){
+        let svgKeg = await fetch ("images/parentkeg2.svg");
+        let myKeg = await svgKeg.text();
+        let tapMainConDiv = document.getElementById("tapMainContainerId"+i); ///putting kegs on main bar
+        tapMainConDiv.innerHTML = myKeg;
+
     }
 
 }
 
 function loadTapLabels(){
-
     let tempTapsArr=data.taps;
+    
 
+
+    console.log(tempTapsArr);
 
     for(let i=0; i<tempTapsArr.length; i++){
-    let x = $("#svgContainerId"+i+">#Layer_1>#keg>#lbl"+ i);
+        let beerLabelNr;
+    for(let j= 0; j<beersLength;j++)//checking id of label for this beer
+    {
+        
+        if(tempTapsArr[i].beer==data.beertypes[j].name){
+            beerLabelNr=j;
+        }
+    }
+    let x = $("#svgContainerId"+i+">#Layer_1>#keg>#lbl"+ beerLabelNr);
+
+    
     x.css("visibility", "visible");
 }
     
@@ -428,6 +445,16 @@ async function loadSvg(i) {
 
 }
 
+function tapsOnMainBar(){
+    let mainTapsD = document.getElementById("mainTapsDiv");
+    for(let i = 0; i<bartendersLength; i++){
+        let newTapContainer = document.createElement('div');
+        newTapContainer.id = 'tapMainContainerId'+i;
+        newTapContainer.className = 'tapMainContainerClass';
+mainTapsD.appendChild(newTapContainer);
+    }
+}
+
 
 function checkPopularity(){
 
@@ -439,6 +466,27 @@ function checkPopularity(){
 
     }
 
+}
+
+
+function animateBeerPouring(){
+    for(let i= 0; i<bartendersLength; i++){
+        let handle = $("#tapMainContainerId"+i+">#Layer_1>#hand>#handle")
+
+        if(data.bartenders[i].statusDetail == "pourBeer"){
+
+           
+            handle.css("fill", "grey");
+            handle.css("transform", "rotate(90deg)");
+            handle.css("transformOrigin", "55% 38% 0px");
+        }
+            else{
+            handle.css("fill", "black");
+            handle.css("transform", "rotate(0deg)");
+            handle.css("transformOrigin", "-55% -38% 0px");
+            }
+        }
+    
 }
 
 function updateQueue(){
@@ -468,6 +516,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateBartenders();
     checkIfBoredomBreak();
     updateQueue();
+    animateBeerPouring();
     
     }, 1000);
 
