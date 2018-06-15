@@ -167,7 +167,7 @@ main {
 
 #general-info {
     background-color: #fff;
-    padding: 1.2em;
+    padding: 0 1.2em;
     font-size: 1em;
     margin: 5% 10% 15% 12%;
 }
@@ -178,6 +178,14 @@ main {
 
 #title p{
     display: inline-block;
+}
+
+#brewery {
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 1.2em;
+    background: #333333;
+    color: #fff;
+    text-align: center;
 }
 
 
