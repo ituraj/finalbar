@@ -368,6 +368,18 @@ main {
     width: 3.5vw;
 }
 
+.kegClass{
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+    background-image: url("monitor.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 4vw;
+    height: 6vh;
+}
+
 .barrelSvg{
     width: 3.5vw;
 }

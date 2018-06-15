@@ -278,18 +278,14 @@ function storageState(){
 
             let newKegContainer = document.createElement('div');
              let newKeg = document.createElement('p');
-             let newKegAmount = document.createElement('p');
      
              newKegContainer.id = 'kegContainerId'+i;
                 newKeg.id = 'kegId'+i;
-             newKegAmount.id = 'kegAmountId'+i;
              
              newKegContainer.className = 'kegContainerClass';
              newKeg.className = 'kegClass';
-             newKegAmount.className = 'kegAmountClass';
 
             newKeg.innerHTML = keg;
-            newKegAmount.innerHTML = amount;
 
             newKegContainer.appendChild(newKeg);
             for(let j = 0; j<amount; j++){
@@ -299,7 +295,6 @@ function storageState(){
                 newSvg.setAttribute("src", "images/barrel"+ i+".svg");
                 newKegContainer.appendChild(newSvg);
             }
-            newKegContainer.appendChild(newKegAmount);
             kegsDiv.appendChild(newKegContainer);
 
 
@@ -316,8 +311,6 @@ function updateStorage(){
     $('#kegsDiv div').find('img').remove()
     for(let i=0; i<storageLength; i++){
         amount = tempKegsArr[i].amount;
-        keg = document.getElementById('kegAmountId'+ i);
-        keg.innerHTML = amount;
         for(let j = 0; j<amount; j++){
             let newKegContainer = document.getElementById('kegContainerId'+ i);
             let newSvg = document.createElement('img');
