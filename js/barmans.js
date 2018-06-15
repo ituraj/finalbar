@@ -1,9 +1,9 @@
 "use strict";
 
 
-let data = JSON.parse(FooBar.getData());
+let data = JSON.parse(FooBar.getData());    //fetching data
 
-let bartendersLength = data.bartenders.length;
+let bartendersLength = data.bartenders.length;    
 let beersLength = data.beertypes.length;
 let storageLength = data.storage.length;
 let queueLength = data.queue.length;
@@ -39,43 +39,54 @@ function countPopularity(arr1, arr2){  ////creates array in which beernumber fro
 }
 
 
-function start(){
+function start(){   /// function that populates all of the areas on page load
+
+
+
+   storageState();             //calling all the different functions populating different "bar areas"
+   tapsState();
+   queueState();
+   loadKeg();
+   tapsOnMainBar();
+   createBartenders();
+   topBeersState();
+   setTimeout(function(){loadTapLabels();}, 2500);
+
+}
+
+
+
+
+
+function topBeersState(){  //populating blackboard with most popular beers
+
+   for(let i= 0; i<beersLength; i++){
+       let newTopBeer = document.createElement('p');
+       newTopBeer.id = 'topBeer'+i;
+       newTopBeer.className = 'topBeer'
+       newTopBeer.innerHTML = i+1 + '. <span id = "topBeerSpan'+i+'"></span>'  ;
+
+       if(i<5){
+       row1.appendChild(newTopBeer);
+       }
+       else{
+       row2.appendChild(newTopBeer);
+       }
+       beerNames.push(data.beertypes[i].name);
+
+}
+
+}
+
+
+
+
+function createBartenders(){
+
 
    let bartendersWrapper = document.createElement('div');
    bartendersWrapper.id = 'bartendersWrapper';
    document.body.appendChild(bartendersWrapper);
-
-   storageState();
-   tapsState();
-   queueState();
-   loadKeg();
-   setTimeout(function(){loadTapLabels();}, 1500);
-   tapsOnMainBar();
-
-
-
-   for(let i= 0; i<beersLength; i++){ //populating blackboard with most popular beers
-           let newTopBeer = document.createElement('p');
-           newTopBeer.id = 'topBeer'+i;
-           newTopBeer.className = 'topBeer'
-           newTopBeer.innerHTML = i+1 + '. <span id = "topBeerSpan'+i+'"></span>'  ;
-
-           if(i<5){
-           row1.appendChild(newTopBeer);
-           }
-           else{
-           row2.appendChild(newTopBeer);
-           }
-           beerNames.push(data.beertypes[i].name);
-
-   }
-
-
-
-  
- 
-
-
 
 
    for(let i= 0; i<bartendersLength; i++){    //loop that populates bartenders with their details
@@ -84,61 +95,39 @@ function start(){
        let newSvg = document.createElement('img');
        let newName = document.createElement('p');
 
-        let newStatus = document.createElement('p');
-        let newStatusDetail = document.createElement('p');
+
 
 
 
        loadSvg(i);
 
        newSvg.id = 'bartenderSvg'+i;
-       newStatus.id = 'status'+i;
        newName.id = 'bartenderName'+i;
-       newStatusDetail.id = 'statusDetail'+i;
        bartendersContainer.id = 'bartendersContainer';
 
 
 
        newSvg.className = 'bartenderSvg';
-       newStatus.className = 'status';
-       newStatusDetail.className = 'statusDetail';
        newName.className = 'bartenderName';
 
        newSvg.setAttribute("src", "images/" + data.bartenders[i].name + ".svg");
-       newStatusDetail.innerHTML = data.bartenders[i].statusDetail;
+
+       newName.innerHTML = data.bartenders[i].name;
 
        bartendersWrapper.appendChild(bartendersContainer);
        bartendersContainer.appendChild(newSvg);
        bartendersContainer.appendChild(newName);
-       bartendersContainer.appendChild(newStatus);
-       bartendersContainer.appendChild(newStatusDetail);
 
-    
-
-       updateTopBeers();
-     
-      
 
    }
+
+
 }
 
 
-
-
-function updateBartenders(){
-
-      
-        let currentStatus;
+function updateDiamonds(){
 
    for(let i= 0; i<bartendersLength; i++){
-
-       currentStatus = data.bartenders[i].status;
-
-  
-       document.getElementById("status"+i).innerHTML = data.bartenders[i].status;
-       document.getElementById("bartenderName"+ i).innerHTML = data.bartenders[i].name;
-       document.getElementById("statusDetail"+ i).innerHTML = data.bartenders[i].statusDetail;
-
        diamondColour(i);
    }
 
@@ -147,9 +136,6 @@ function updateBartenders(){
 
 
 function diamondColour(i){
-
-  
-
 
    if (data.bartenders[i].status=="WORKING") {
       
@@ -186,38 +172,30 @@ function queueState(){
 function tapsState(){
    let tempTapsArr=data.taps;
    let tap;
-   let isInUse;
    let tapsDiv = document.getElementById("tapsDiv");
 
-   console.log(tempTapsArr);
    for(let i=0; i<tempTapsArr.length; i++){
        tap= tempTapsArr[i].beer;
-       isInUse = tempTapsArr[i].inUse;
 
            let newTapContainer = document.createElement('div');
            let newSvgContainer = document.createElement('div');
 
             let newTap = document.createElement('p');
-            let newTapInUse = document.createElement('p');
    
             newTapContainer.id = 'tapContainerId'+i;
             newSvgContainer.id = 'svgContainerId'+i;
 
            newTap.id = 'tapId'+i;
-            newTapInUse.id = 'tapInUseId'+i;
            
             newTapContainer.className = 'tapContainerClass';
             newSvgContainer.className = 'svgContainerClass';
             newTap.className = 'tapClass';
-            newTapInUse.className = 'tapInUseClass';
 
            newTap.innerHTML = tap;
-           newTapInUse.innerHTML = isInUse;
 
 
       
            newTapContainer.appendChild(newTap);
-           newTapContainer.appendChild(newTapInUse);
            newTapContainer.appendChild(newSvgContainer);
            tapsDiv.appendChild(newTapContainer);
 
@@ -234,7 +212,6 @@ function checkIfBoredomBreak(){
    for(let i=0;i<bartendersLength; i++){
 
    if(data.bartenders[i].status == "READY"){
-       console.log("is working");
        breakCounterArr[i]++;
    }
    else{
@@ -245,8 +222,7 @@ function checkIfBoredomBreak(){
        console.log(data.bartenders[i].name +" is taking a break out of boredom");
    }
 
-   if(breakCounterArr[i]>0)
-   console.log(data.bartenders[i].name + " " +breakCounterArr[i])
+
 
 }
 }
@@ -323,8 +299,7 @@ function updateTaps(){
 
    for(let i=0; i<tempTapsArr.length; i++){
        isInUse = tempTapsArr[i].inUse;
-       tap = document.getElementById('tapInUseId'+ i);
-       tap.innerHTML = isInUse;
+
        let handle = $("#svgContainerId"+i+">#Layer_1>#hand>#handle")
 
        if(isInUse==true){
@@ -372,7 +347,6 @@ function loadTapLabels(){
   
 
 
-   console.log(tempTapsArr);
 
    for(let i=0; i<tempTapsArr.length; i++){
        let beerLabelNr;
@@ -401,13 +375,11 @@ function updateTopBeers(){
            })
        };
  
-   //let tempBeerPopArr = beerPopularityArr.sort(function(a, b){return a - b});
    let tempArray = beerNames.zip(beerPopularityArr);
    let tempArraySorted = tempArray.sort(compareSecondColumn);
-   // console.log(tempArraySorted);
 
     for(let i = 0; i< beerNames.length; i++){
-    document.getElementById("topBeerSpan"+i).innerHTML = tempArraySorted[i];}
+    document.getElementById("topBeerSpan"+i).innerHTML = tempArraySorted[i][0] + " ("+tempArraySorted[i][1]+ ")";}
 }
 
 
@@ -507,7 +479,7 @@ function updateData(){
 
 window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
    updateData();
-   updateBartenders();
+   updateDiamonds();
    checkIfBoredomBreak();
    updateQueue();
    USD();
@@ -521,15 +493,14 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
        updateTopBeers();
        updateStorage();
        updateTaps();
-      
+       loadTapLabels();
      
        }, 4000);
 
 
 
-
-
   document.addEventListener("DOMContentLoaded", start());
   
+
 
 
