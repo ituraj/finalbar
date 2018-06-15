@@ -1,9 +1,9 @@
 "use strict";
 
 
-let data = JSON.parse(FooBar.getData());
+let data = JSON.parse(FooBar.getData());    //fetching data 
 
-let bartendersLength = data.bartenders.length;
+let bartendersLength = data.bartenders.length;     
 let beersLength = data.beertypes.length;
 let storageLength = data.storage.length;
 let queueLength = data.queue.length;
@@ -85,38 +85,32 @@ function start(){
         let newSvg = document.createElement('img');
         let newName = document.createElement('p');
 
-         let newStatus = document.createElement('p');
-         let newStatusDetail = document.createElement('p');
+
 
 
 
         loadSvg(i);
 
         newSvg.id = 'bartenderSvg'+i;
-        newStatus.id = 'status'+i;
         newName.id = 'bartenderName'+i;
-        newStatusDetail.id = 'statusDetail'+i;
         bartendersContainer.id = 'bartendersContainer';
 
 
 
         newSvg.className = 'bartenderSvg';
-        newStatus.className = 'status';
-        newStatusDetail.className = 'statusDetail';
         newName.className = 'bartenderName';
 
         newSvg.setAttribute("src", "images/" + data.bartenders[i].name + ".svg");
-        newStatusDetail.innerHTML = data.bartenders[i].statusDetail;
+
+        newName.innerHTML = data.bartenders[i].name;
 
         bartendersWrapper.appendChild(bartendersContainer);
         bartendersContainer.appendChild(newSvg);
         bartendersContainer.appendChild(newName);
-        bartendersContainer.appendChild(newStatus);
-        bartendersContainer.appendChild(newStatusDetail);
+
 
       
 
-        updateTopBeers();
        
         
 
@@ -126,20 +120,9 @@ function start(){
 
 
 
-function updateBartenders(){
-
-        
-         let currentStatus;
+function updateDiamonds(){
 
     for(let i= 0; i<bartendersLength; i++){
-
-        currentStatus = data.bartenders[i].status;
-
-    
-        document.getElementById("status"+i).innerHTML = data.bartenders[i].status;
-        document.getElementById("bartenderName"+ i).innerHTML = data.bartenders[i].name;
-        document.getElementById("statusDetail"+ i).innerHTML = data.bartenders[i].statusDetail;
-
         diamondColour(i);
     }
 
@@ -148,9 +131,6 @@ function updateBartenders(){
 
 
 function diamondColour(i){
-
-    
-
 
     if (data.bartenders[i].status=="WORKING") {
         
@@ -510,7 +490,7 @@ function updateData(){
 
 window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateData();
-    updateBartenders();
+    updateDiamonds();
     checkIfBoredomBreak();
     updateQueue();
     USD();
