@@ -10,7 +10,7 @@ let queueLength = data.queue.length;
 let beerNames = [];
 let beerPopularityArr = Array.apply(null, Array(10)).map(Number.prototype.valueOf,0);
 let storageArr = [];
-
+let barman = data.bartenders;
 
 
 
@@ -168,12 +168,6 @@ function diamondColour(i){
 
     }
 
-}
-
-function dollar (i){
-    if(data.bartenders[i].statusDetail == "pourBeer"){
-
-    }
 }
 
 
@@ -440,11 +434,24 @@ function checkPopularity(){
     for(let i= 0; i<bartendersLength; i++){
        if(data.bartenders[i].statusDetail == "receivePayment"){
     countPopularity(data.serving[i].order, beerNames);
-    // console.log(beerPopularityArr);
 }
 
     }
 
+}
+
+
+function USD(){
+    for(let i= 0; i<bartendersLength; i++){
+        if(data.bartenders[i].statusDetail == "receivePayment"){
+
+            document.querySelector("#dollar"+i).style.display="inline-block";
+
+            setTimeout(function(){ 
+            document.querySelector("#dollar"+i).style.display="none";
+            }, 4000);
+        }
+    }
 }
 
 function updateQueue(){
@@ -474,6 +481,7 @@ window.setInterval(function(){  ///INTERVAL THAT UPDATES EVERY 1 SECS
     updateBartenders();
     checkIfBoredomBreak();
     updateQueue();
+    USD();
     
     }, 1000);
 

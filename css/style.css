@@ -478,7 +478,6 @@ main {
     animation: move 4s infinite ease-out;
     animation-name: c7c8;
     animation-delay: 3s;
-<<<<<<< HEAD
     opacity: 0;
 }
 
@@ -488,12 +487,23 @@ main {
     100% {opacity:0;}
   }
   .fade-in {
-    animation: fadeIn 5s ease-in 1 forwards;
-    opacity: 0; /* It's not DRY it's needed ;)*/
+    animation: fadeIn 3s ease-in 1 forwards;
+    opacity: 0;
     width: 2vw;
     top: 20vh;
     position: relative;
+    display: none;
   }
-=======
+.dollars{
+    top: 5vh;
 }
->>>>>>> 9f016c45e0e9f21baba650c252d2a3418da9b0a2
+ #dollar0 {
+    left: 22vw;
+ }
+
+ #dollar1 {
+    left: 26vw;
+ }
+ #dollar2 {
+    left: 30vw;
+ }
